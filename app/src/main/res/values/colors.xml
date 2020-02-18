@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#F25362</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="red">#F25362</color>
+    <color name="gold">#4FA7EE</color>
+    <color name="grey">#CC5757</color>
+
+
+    <color name="card_text_color">#FFFFFF</color>
+    <color name="card_label_color">#D4D9DC</color>
+    <color name="card_cvv_color">#383838</color>
+    <color name="CTA_text">#FFFFFF</color>
+    <color name="CTA_bg">#32C25E</color>
+</resources>
