@@ -12,12 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".send_money.SendMoney_page_three"></activity>
+        <activity android:name=".send_money.SendMoney_page_two" />
+        <activity android:name=".send_money.SendMoney_page_one" />
+        <activity android:name=".CardInfo" />
         <activity android:name=".SendMoney">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".HomePage">
 
@@ -28,10 +34,7 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".auth.SignUp">
-
-
-        </activity>
+        <activity android:name=".auth.SignUp" />
         <activity android:name=".auth.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

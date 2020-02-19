@@ -6,26 +6,41 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class HomePage extends AppCompatActivity {
 
-    private CardView sendMoney;
+    private LinearLayout sendMoneyBtn,cardDetailsBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cards);
+        setContentView(R.layout.activity_home_page);
 
-//        sendMoney=findViewById(R.id.send_money);
-//
-//
-//        sendMoney.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                startActivity(new Intent(getApplicationContext(),SendMoney.class));
-//            }
-//        });
+        sendMoneyBtn=findViewById(R.id.send_money_btn);
+        cardDetailsBtn=findViewById(R.id.card_details_btn);
+
+
+        sendMoneyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getApplicationContext(),SendMoney.class));
+            }
+        });
+
+
+
+        cardDetailsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getApplicationContext(),CardInfo.class));
+
+            }
+        });
 
 
     }
