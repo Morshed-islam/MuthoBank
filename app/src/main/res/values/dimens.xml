@@ -27,9 +27,11 @@
     <dimen name="chip_top_margin">25dp</dimen>
     <dimen name="chip_width">55dp</dimen>
     <dimen name="chip_height">40dp</dimen>
-    <dimen name="cardtype_width">85dp</dimen>
+    <dimen name="cardtype_width">95dp</dimen>
     <dimen name="cardtype_height">50dp</dimen>
     <dimen name="margin_10">10dp</dimen>
     <dimen name="card_margin">25dp</dimen>
+    <dimen name="size1dp">1dp</dimen>
+    <dimen name="margin_5dp">8dp</dimen>
 
 </resources>

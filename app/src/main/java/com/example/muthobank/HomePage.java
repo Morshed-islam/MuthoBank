@@ -14,18 +14,18 @@ public class HomePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.cards);
 
-        sendMoney=findViewById(R.id.send_money);
-
-
-        sendMoney.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(getApplicationContext(),SendMoney.class));
-            }
-        });
+//        sendMoney=findViewById(R.id.send_money);
+//
+//
+//        sendMoney.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                startActivity(new Intent(getApplicationContext(),SendMoney.class));
+//            }
+//        });
 
 
     }

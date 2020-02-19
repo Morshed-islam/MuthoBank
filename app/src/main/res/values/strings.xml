@@ -4,7 +4,7 @@
 
     <!--    credit card layout design string here-->
     <string name="card_header">NFN CARD</string>
-    <string name="card_number_sample">5544 7754 9876 4323</string>
+    <string name="card_number_sample">**** **** **** 4323</string>
     <string name="card_validity_label">VALID UPTO</string>
     <string name="card_validity_sample">03/25</string>
     <string name="card_name_sample">Md. Morshed</string>
