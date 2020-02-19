@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.muthobank.send_money.SendMoney_page_one;
+
 public class HomePage extends AppCompatActivity {
 
     private LinearLayout sendMoneyBtn,cardDetailsBtn;
@@ -27,7 +29,7 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getApplicationContext(),SendMoney.class));
+                startActivity(new Intent(getApplicationContext(), SendMoney_page_one.class));
             }
         });
 

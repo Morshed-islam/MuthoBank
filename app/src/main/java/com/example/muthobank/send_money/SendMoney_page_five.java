@@ -6,20 +6,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.muthobank.HomePage;
 import com.example.muthobank.R;
 
-public class SendMoney_page_one extends AppCompatActivity {
+public class SendMoney_page_five extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.send_money_page_one);
+        setContentView(R.layout.send_money_page_five);
 
-        findViewById(R.id.add_new_recipient_btn).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.page_five_sendBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                startActivity(new Intent(getApplicationContext(),SendMoney_page_two.class));
+                startActivity(new Intent(getApplicationContext(), HomePage.class));
             }
         });
     }

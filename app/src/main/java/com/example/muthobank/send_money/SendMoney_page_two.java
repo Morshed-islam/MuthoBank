@@ -13,7 +13,7 @@ public class SendMoney_page_two extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.new_recipient);
+        setContentView(R.layout.send_money_page_two);
 
         findViewById(R.id.new_recipient_continue_btn).setOnClickListener(new View.OnClickListener() {
             @Override

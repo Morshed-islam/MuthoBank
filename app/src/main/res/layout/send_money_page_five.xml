@@ -125,6 +125,7 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/page_five_sendBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Send"

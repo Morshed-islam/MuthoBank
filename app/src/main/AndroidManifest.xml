@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".send_money.SendMoney_page_three"></activity>
+        <activity android:name=".send_money.SendMoney_page_five"></activity>
+        <activity android:name=".send_money.SendMoney_page_four" />
+        <activity android:name=".send_money.SendMoney_page_three" />
         <activity android:name=".send_money.SendMoney_page_two" />
         <activity android:name=".send_money.SendMoney_page_one" />
         <activity android:name=".CardInfo" />
