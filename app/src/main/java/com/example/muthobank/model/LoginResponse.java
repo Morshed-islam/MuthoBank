@@ -18,6 +18,14 @@ public class LoginResponse {
     @Expose
     private Integer amount;
 
+    @SerializedName("name")
+    @Expose
+    private String name;
+
+    @SerializedName("valid_date")
+    @Expose
+    private String valid_date;
+
     public LoginResponse() {
     }
 
@@ -51,5 +59,21 @@ public class LoginResponse {
 
     public void setAmount(Integer amount) {
         this.amount = amount;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getValid_date() {
+        return valid_date;
+    }
+
+    public void setValid_date(String valid_date) {
+        this.valid_date = valid_date;
     }
 }

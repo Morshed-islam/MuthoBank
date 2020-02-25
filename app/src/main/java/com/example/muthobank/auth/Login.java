@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -94,8 +95,10 @@ public class Login extends AppCompatActivity {
                     Log.d("values", "onResponse: " + response.body().getSuccess());
                     int amount = response.body().getAmount();
 
-                    preferenceManager.createLoginSession(inputPhone, inputPassword, amount, response.body().getCardNumber(), response.body().getBankAccount());
+                    preferenceManager.createLoginSession(inputPhone, inputPassword, amount, response.body().getCardNumber(), response.body().getBankAccount(),
+                            response.body().getName(),response.body().getValid_date());
                     preferenceManager.putInt(SharedPreferenceManager.KEY_AMOUNT,amount);
+//                    preferenceManager.putCardNumber(SharedPreferenceManager.KEY_CARD_NUMBER,response.body().getCardNumber());
 
                     Intent nextToHome = new Intent(getApplicationContext(), HomePage.class);
                     nextToHome.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -114,5 +117,11 @@ public class Login extends AppCompatActivity {
             }
         });
 
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
     }
 }

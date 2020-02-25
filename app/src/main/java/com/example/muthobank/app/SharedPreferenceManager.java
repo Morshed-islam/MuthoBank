@@ -36,6 +36,8 @@ public class SharedPreferenceManager {
     public static final String KEY_AMOUNT  = "amount";
     public static final String KEY_CARD_NUMBER  = "card";
     public static final String KEY_BANK_ACCOUNT  = "banak_account";
+    public static final String KEY_NAME  = "name";
+    public static final String KEY_VALID_DATE  = "valid_date";
 
     // Constructor
     public SharedPreferenceManager(Context context){
@@ -48,7 +50,7 @@ public class SharedPreferenceManager {
     /**
      * Create login session
      * */
-    public void createLoginSession(String phone, int pass,int amount,String card,String bank){
+    public void createLoginSession(String phone, int pass,int amount,String card,String bank,String name,String valid_date){
         // Storing login value as TRUE
         editor.putBoolean(IS_LOGIN, true);
 
@@ -59,6 +61,8 @@ public class SharedPreferenceManager {
         editor.putInt(KEY_AMOUNT, amount);
         editor.putString(KEY_CARD_NUMBER,card);
         editor.putString(KEY_BANK_ACCOUNT,bank);
+        editor.putString(KEY_NAME,name);
+        editor.putString(KEY_VALID_DATE,valid_date);
 
         // commit changes
         editor.commit();
@@ -85,18 +89,27 @@ public class SharedPreferenceManager {
     /**
      * Get stored session data
      * */
-//    public HashMap<String, String> getUserDetails(){
-//        HashMap<String, String> user = new HashMap<String, String>();
-//        // user name
-//        user.put(KEY_PHONE, pref.getString(KEY_PHONE, null));
-//        // user email id
-//        user.put(KEY_PASS, pref.getString(KEY_PASS, null));
-//        user.put(KEY_COMPANY_ID, pref.getString(KEY_COMPANY_ID, null));
-//        user.put(KEY_EMPLOYEE_ID, pref.getString(KEY_EMPLOYEE_ID, null));
-//
-//        // return user
-//        return user;
-//    }
+    public HashMap<String, String> getUserDetails(){
+        HashMap<String, String> user = new HashMap<String, String>();
+        // user name
+        user.put(KEY_CARD_NUMBER,pref.getString(KEY_CARD_NUMBER, ""));
+        user.put(KEY_NAME,pref.getString(KEY_NAME, ""));
+        user.put(KEY_VALID_DATE,pref.getString(KEY_VALID_DATE, ""));
+
+        // return user
+        return user;
+    }
+
+
+    public void  putCardNumber(String key, String value){
+        editor.putString(key,value);
+        editor.apply();
+    }
+
+    public String getCardNumber(String key, String defValue){
+        return pref.getString(key,defValue);
+    }
+
 
     public void  putInt(String key, int value){
         editor.putInt(key,value);
