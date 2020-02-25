@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,29 +24,28 @@
                 android:layout_height="80dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
-                android:tint="@color/red"
                 android:layout_marginBottom="@dimen/margin_5dp"
-                android:src="@drawable/ic_success"/>
+                android:src="@drawable/ic_success"
+                android:tint="@color/red" />
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:gravity="center"
                 android:text="Your Payment Has Sent"
-                android:textSize="25sp"
-                android:gravity="center"/>
+                android:textColor="@color/black"
+                android:textSize="25sp" />
 
         </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:gravity="center"
             android:text="Your New Balance \n $54332"
-            android:textSize="25sp"
-            android:gravity="center"/>
-
+            android:textColor="@color/black"
+            android:textSize="25sp" />
 
 
     </LinearLayout>
@@ -59,6 +57,7 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/okay_dialog_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_10"

@@ -42,14 +42,13 @@ public class SendMoney_page_five extends AppCompatActivity {
             dialog.setCancelable(false);
             dialog.setContentView(R.layout.payment_succes_dialog);
 
-
-//            Button dialogButton = (Button) dialog.findViewById(R.id.btn_dialog);
-//            dialogButton.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    dialog.dismiss();
-//                }
-//            });
+            Button dialogButton = dialog.findViewById(R.id.okay_dialog_btn);
+            dialogButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
 
             dialog.show();
 

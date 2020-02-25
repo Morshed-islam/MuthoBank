@@ -2,6 +2,7 @@ package com.example.muthobank.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -27,6 +28,8 @@ public class SignUp extends AppCompatActivity {
     private ImageView backToLogin;
     private Button continueBtn;
     private EditText _firstName, _lastName, _emailAddress, _day, _month, _year, _edPassword, _phone;
+    private ProgressDialog mRegProgress;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +74,9 @@ public class SignUp extends AppCompatActivity {
         _edPassword = findViewById(R.id.ed_password);
         continueBtn = findViewById(R.id.btn_continue);
 
+        mRegProgress = new ProgressDialog(this);
+
+
     }
 
 
@@ -79,21 +85,26 @@ public class SignUp extends AppCompatActivity {
         String inputFirstName = _firstName.getText().toString().trim();
         String inputLastName = _lastName.getText().toString().trim();
         String inputEmail = _emailAddress.getText().toString().trim();
-        String inputPhone = _phone.getText().toString().trim();
+        final String inputPhone = _phone.getText().toString().trim();
         String inputDay = _day.getText().toString().trim();
         String inputMonth = _month.getText().toString().trim();
         String inputYear = _year.getText().toString().trim();
 
-        if (TextUtils.isEmpty(inputFirstName) || TextUtils.isEmpty(inputLastName)|| TextUtils.isEmpty(inputEmail)|| TextUtils.isEmpty(inputPhone)
-                || TextUtils.isEmpty(inputDay)|| TextUtils.isEmpty(inputMonth)|| TextUtils.isEmpty(inputYear)) {
+        if (TextUtils.isEmpty(inputFirstName) || TextUtils.isEmpty(inputLastName) || TextUtils.isEmpty(inputEmail) || TextUtils.isEmpty(inputPhone)
+                || TextUtils.isEmpty(inputDay) || TextUtils.isEmpty(inputMonth) || TextUtils.isEmpty(inputYear)) {
             // username / password doesn't match
             Toast.makeText(this, "Login failed.. Required All Field!", Toast.LENGTH_SHORT).show();
             return;
         }
 
+        mRegProgress.setTitle("Logging.....");
+        mRegProgress.setMessage("Please wait while we login your account !");
+        mRegProgress.setCanceledOnTouchOutside(false);
+        mRegProgress.show();
+
         String dateOfBirth = inputDay + "/" + inputMonth + "/" + inputYear;
 
-        String inputPass = _edPassword.getText().toString().trim();
+        final String inputPass = _edPassword.getText().toString().trim();
 
         RegistrationPostModel registrationPostModel = new RegistrationPostModel(inputFirstName, inputLastName, inputEmail, inputPhone, dateOfBirth, inputPass);
 
@@ -105,9 +116,21 @@ public class SignUp extends AppCompatActivity {
             public void onResponse(Call<RegPostResponse> call, Response<RegPostResponse> response) {
 
                 if (response.isSuccessful()) {
+                    mRegProgress.dismiss();
 
-                    Toast.makeText(SignUp.this, "" + response.body().getSuccess(), Toast.LENGTH_SHORT).show();
+                    Intent goToLogin = new Intent(getApplicationContext(), Login.class);
+                    goToLogin.putExtra("PHONE", inputPhone);
+                    goToLogin.putExtra("PASS", inputPass);
+                    startActivity(goToLogin);
+
+//                    Toast.makeText(SignUp.this, "" + response.body().getSuccess(), Toast.LENGTH_SHORT).show();
+                } else{
+
+                    Toast.makeText(SignUp.this, "" + response.message(), Toast.LENGTH_SHORT).show();
+                    mRegProgress.dismiss();
+
                 }
+
 
             }
 
@@ -115,6 +138,8 @@ public class SignUp extends AppCompatActivity {
             public void onFailure(Call<RegPostResponse> call, Throwable t) {
 
                 Toast.makeText(SignUp.this, "error", Toast.LENGTH_SHORT).show();
+                mRegProgress.dismiss();
+
             }
         });
 

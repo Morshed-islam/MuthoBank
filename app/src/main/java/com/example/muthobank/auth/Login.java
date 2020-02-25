@@ -2,6 +2,7 @@ package com.example.muthobank.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ import com.example.muthobank.app.Constants;
 import com.example.muthobank.app.SharedPreferenceManager;
 import com.example.muthobank.model.LoginPostModel;
 import com.example.muthobank.model.LoginResponse;
+import com.google.android.material.snackbar.Snackbar;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,15 +35,30 @@ public class Login extends AppCompatActivity {
     private Button logInBtn;
     private EditText _gPhone, _gPass;
     private SharedPreferenceManager preferenceManager;
+    private ProgressDialog mRegProgress;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        Bundle b = getIntent().getExtras();
+
         preferenceManager = new SharedPreferenceManager(getApplicationContext());
         initViews();
 
+        if (b != null) {
+
+            String mPhone = getIntent().getStringExtra("PHONE");
+            String mPass = getIntent().getStringExtra("PASS");
+
+            _gPhone.setText(mPhone);
+            _gPass.setText(mPass);
+
+        }
+
+        mRegProgress = new ProgressDialog(this);
         createNewAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +84,7 @@ public class Login extends AppCompatActivity {
         logInBtn = findViewById(R.id.btn_log_in);
         _gPhone = findViewById(R.id.ed_login_phone);
         _gPass = findViewById(R.id.ed_login_pass);
+
     }
 
 
@@ -81,6 +100,11 @@ public class Login extends AppCompatActivity {
             return;
         }
 
+        mRegProgress.setTitle("Logging.....");
+        mRegProgress.setMessage("Please wait while we login your account !");
+        mRegProgress.setCanceledOnTouchOutside(false);
+        mRegProgress.show();
+
         LoginPostModel loginPostModel = new LoginPostModel(inputPhone, inputPassword);
 
         ApiInterface apiInterface = ApiUtils.getApiInterface();
@@ -94,10 +118,10 @@ public class Login extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Log.d("values", "onResponse: " + response.body().getSuccess());
                     int amount = response.body().getAmount();
-
+                    mRegProgress.dismiss();
                     preferenceManager.createLoginSession(inputPhone, inputPassword, amount, response.body().getCardNumber(), response.body().getBankAccount(),
-                            response.body().getName(),response.body().getValid_date());
-                    preferenceManager.putInt(SharedPreferenceManager.KEY_AMOUNT,amount);
+                            response.body().getName(), response.body().getValid_date());
+                    preferenceManager.putInt(SharedPreferenceManager.KEY_AMOUNT, amount);
 //                    preferenceManager.putCardNumber(SharedPreferenceManager.KEY_CARD_NUMBER,response.body().getCardNumber());
 
                     Intent nextToHome = new Intent(getApplicationContext(), HomePage.class);
