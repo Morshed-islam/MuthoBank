@@ -118,11 +118,12 @@ public class Login extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Log.d("values", "onResponse: " + response.body().getSuccess());
                     int amount = response.body().getAmount();
+                    Toast.makeText(Login.this, ""+amount, Toast.LENGTH_SHORT).show();
                     mRegProgress.dismiss();
-                    preferenceManager.createLoginSession(inputPhone, inputPassword, amount, response.body().getCardNumber(), response.body().getBankAccount(),
+                    preferenceManager.createLoginSession(inputPhone, inputPassword, response.body().getCardNumber(), response.body().getBankAccount(),
                             response.body().getName(), response.body().getValid_date());
-                    preferenceManager.putInt(SharedPreferenceManager.KEY_AMOUNT, amount);
-//                    preferenceManager.putCardNumber(SharedPreferenceManager.KEY_CARD_NUMBER,response.body().getCardNumber());
+                    preferenceManager.putAmount(SharedPreferenceManager.KEY_AMOUNT, amount);
+                    preferenceManager.putID(SharedPreferenceManager.KEY_ID, response.body().getId());
 
                     Intent nextToHome = new Intent(getApplicationContext(), HomePage.class);
                     nextToHome.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

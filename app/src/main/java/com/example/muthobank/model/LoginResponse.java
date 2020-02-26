@@ -8,6 +8,9 @@ public class LoginResponse {
     @SerializedName("success")
     @Expose
     private String success;
+    @SerializedName("id")
+    @Expose
+    private int id;
     @SerializedName("card_number")
     @Expose
     private String cardNumber;
@@ -27,6 +30,14 @@ public class LoginResponse {
     private String valid_date;
 
     public LoginResponse() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getSuccess() {

@@ -47,7 +47,7 @@ public class HomePage extends AppCompatActivity {
         cardDetailsBtn = findViewById(R.id.card_details_btn);
         _gAmount = findViewById(R.id.tv_amount);
 
-        _gAmount.setText("$"+preferenceManager.getInt(SharedPreferenceManager.KEY_AMOUNT,0));
+        _gAmount.setText("$"+preferenceManager.getAmount(SharedPreferenceManager.KEY_AMOUNT,0));
 
 
         sendMoneyBtn.setOnClickListener(new View.OnClickListener() {

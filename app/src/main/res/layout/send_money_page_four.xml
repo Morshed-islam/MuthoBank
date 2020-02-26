@@ -4,16 +4,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_gravity="center"
+        android:orientation="vertical"
         android:background="@drawable/square_shape">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -24,6 +25,7 @@
                 android:src="@drawable/ic_arrow_left" />
 
             <TextView
+                android:id="@+id/tv_page_four_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -35,7 +37,7 @@
 
         </LinearLayout>
 
-    </androidx.appcompat.widget.Toolbar>
+    </LinearLayout>
 
 
     <TextView
@@ -65,7 +67,7 @@
 
 
         <EditText
-            android:id="@+id/textArea_information"
+            android:id="@+id/tv_page_four_greetings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edidtext_shape"
