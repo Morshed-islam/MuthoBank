@@ -19,6 +19,7 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/back_to_page_four"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
                 android:src="@drawable/ic_arrow_left" />
@@ -41,25 +42,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal"
         android:background="@drawable/square_shape"
-        >
+        android:orientation="horizontal">
 
         <ImageView
             android:layout_width="50dp"
             android:layout_height="60dp"
-            android:src="@drawable/user"
-            android:padding="@dimen/margin_5dp"
             android:layout_marginLeft="@dimen/margin_5dp"
-            />
+            android:padding="@dimen/margin_5dp"
+            android:src="@drawable/user" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="@dimen/margin_5dp"
             android:text="Rubel Mia"
-            android:textSize="25sp"
-            android:padding="@dimen/margin_5dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:textSize="25sp" />
 
 
     </LinearLayout>
@@ -67,25 +66,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal"
         android:background="@drawable/square_shape"
-        >
+        android:orientation="horizontal">
 
         <ImageView
             android:layout_width="50dp"
             android:layout_height="60dp"
-            android:src="@drawable/ic_dollar"
-            android:padding="@dimen/margin_5dp"
             android:layout_marginLeft="@dimen/margin_5dp"
-            />
+            android:padding="@dimen/margin_5dp"
+            android:src="@drawable/ic_dollar" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="@dimen/margin_5dp"
             android:text="500"
-            android:textSize="25sp"
-            android:padding="@dimen/margin_5dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:textSize="25sp" />
 
 
     </LinearLayout>
@@ -94,28 +91,59 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal"
         android:background="@drawable/square_shape"
-        >
+        android:orientation="horizontal">
 
         <ImageView
             android:layout_width="50dp"
             android:layout_height="60dp"
-            android:src="@drawable/ic_card"
-            android:padding="@dimen/margin_5dp"
             android:layout_marginLeft="@dimen/margin_5dp"
-            />
+            android:padding="@dimen/margin_5dp"
+            android:src="@drawable/ic_card" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Thank You"
-            android:textSize="25sp"
             android:padding="@dimen/margin_5dp"
-            android:textColor="@color/black"/>
-
+            android:text="Thank You"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/square_shape"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="@dimen/margin_5dp"
+            android:padding="@dimen/margin_5dp"
+            android:src="@drawable/ic_lock" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="@dimen/margin_10"
+            android:layout_marginRight="@dimen/margin_10"
+            android:layout_marginBottom="@dimen/margin_10"
+            android:background="@drawable/edidtext_shape"
+            android:hint="Enter Pin"
+            android:gravity="center"
+            android:maxEms="4"
+            android:ems="4"
+            android:maxLines="1"
+            android:maxLength="4"
+            android:inputType="numberPassword"
+            android:padding="10dp"
+            android:textColorHint="#000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -128,16 +156,15 @@
             android:id="@+id/page_five_sendBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Send"
+            android:layout_marginLeft="@dimen/margin_10"
             android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginRight="@dimen/margin_10"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_pressed"
+            android:text="Send"
             android:textAllCaps="false"
             android:textColor="#fff"
-            android:layout_marginBottom="20dp"
-            android:textSize="25sp"
-            android:layout_marginLeft="@dimen/margin_10"
-            android:layout_marginRight="@dimen/margin_10"
-            android:background="@drawable/button_pressed"
-            />
+            android:textSize="25sp" />
 
     </LinearLayout>
 

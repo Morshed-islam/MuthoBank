@@ -21,6 +21,16 @@ public class SendMoney_page_five extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.send_money_page_five);
 
+        findViewById(R.id.back_to_page_four).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pageFour = new Intent(getApplicationContext(), SendMoney_page_four.class);
+                pageFour.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(pageFour);
+
+            }
+        });
+
         findViewById(R.id.page_five_sendBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,6 +57,11 @@ public class SendMoney_page_five extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     dialog.dismiss();
+
+                    Intent goToHome = new Intent(getApplicationContext(),HomePage.class);
+                    goToHome.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(goToHome);
+                    finish();
                 }
             });
 

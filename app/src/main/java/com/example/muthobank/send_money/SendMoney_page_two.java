@@ -15,6 +15,17 @@ public class SendMoney_page_two extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.send_money_page_two);
 
+
+        findViewById(R.id.back_to_page_one).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pageOne = new Intent(getApplicationContext(), SendMoney_page_one.class);
+                pageOne.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(pageOne);
+
+            }
+        });
+
         findViewById(R.id.new_recipient_continue_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
