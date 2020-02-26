@@ -112,10 +112,14 @@ public class SharedPreferenceManager {
 
 
 
+    public void putPin(String key, int value) {
+        editor.putInt(key, value);
+        editor.apply();
+    }
 
-
-
-
+    public int getPin(String key, int defValue) {
+        return pref.getInt(key, defValue);
+    }
 
 
     //login-----------------------------------------------

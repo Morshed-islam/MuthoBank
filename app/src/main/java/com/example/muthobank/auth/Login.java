@@ -124,6 +124,7 @@ public class Login extends AppCompatActivity {
                             response.body().getName(), response.body().getValid_date());
                     preferenceManager.putAmount(SharedPreferenceManager.KEY_AMOUNT, amount);
                     preferenceManager.putID(SharedPreferenceManager.KEY_ID, response.body().getId());
+                    preferenceManager.putPin(SharedPreferenceManager.KEY_PASS, inputPassword);
 
                     Intent nextToHome = new Intent(getApplicationContext(), HomePage.class);
                     nextToHome.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

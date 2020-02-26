@@ -61,14 +61,22 @@ public class SendMoney_page_five extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                String getPin = String.valueOf(preferenceManager.getPin(SharedPreferenceManager.KEY_PASS,0));
+
                 String mPin = _edPin.getText().toString();
                 if (TextUtils.isEmpty(mPin)){
                     Toast.makeText(SendMoney_page_five.this, "Enter your Pin!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                ViewDialog viewDialog = new ViewDialog();
-                viewDialog.showDialog(SendMoney_page_five.this);
+                if (getPin.equals(mPin)){
+                    ViewDialog viewDialog = new ViewDialog();
+                    viewDialog.showDialog(SendMoney_page_five.this);
+                }else {
+                    Toast.makeText(SendMoney_page_five.this, "Incorrect Pin!", Toast.LENGTH_SHORT).show();
+
+                }
+
             }
         });
     }

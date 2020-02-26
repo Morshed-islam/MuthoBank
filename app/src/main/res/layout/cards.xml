@@ -31,13 +31,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
         <!--    credit card view-->
 
         <RelativeLayout
             android:id="@+id/rl_card"
-            android:layout_width="match_parent"
+            android:layout_width="320dp"
             android:layout_height="@dimen/card_height"
             android:layout_marginLeft="@dimen/activity_vertical_margin"
             android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -85,7 +86,7 @@
                     android:fontFamily="serif"
                     android:text="@string/card_number_sample"
                     android:textColor="@color/card_text_color"
-                    android:textSize="30sp" />
+                    android:textSize="25sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -150,13 +151,19 @@
             android:layout_marginBottom="@dimen/margin_10"
             android:orientation="horizontal">
 
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.7"
                 android:orientation="vertical">
-
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -178,7 +185,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.7"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -203,7 +210,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.7"
                 android:orientation="vertical">
 
 
@@ -227,7 +234,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.7"
                 android:orientation="vertical">
 
 
@@ -244,6 +251,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Add Money" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
 
             </LinearLayout>
 
@@ -279,7 +294,7 @@
                     android:layout_height="wrap_content"
                     android:text="Cards"
                     android:textColor="@color/black"
-                    android:textSize="35sp" />
+                    android:textSize="32sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -318,7 +333,7 @@
                     android:layout_height="wrap_content"
                     android:text="Account"
                     android:textColor="@color/black"
-                    android:textSize="35sp" />
+                    android:textSize="32sp" />
 
                 <TextView
                     android:layout_width="match_parent"
