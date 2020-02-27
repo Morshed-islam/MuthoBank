@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Theme" parent="Theme.AppCompat.Light">
+        ...
+        <item name="pinViewStyle">@style/PinWidget.PinView</item>
+    </style>
+
 </resources>

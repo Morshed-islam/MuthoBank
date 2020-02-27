@@ -39,7 +39,7 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
         TransactionsPostModel model= teamsList.get(position);
         holder.name.setText(model.getAccountHolderName());
         holder.date.setText(model.getCreatedAt());
-        holder.amount.setText("-"+model.getSendMoney());
+        holder.amount.setText("- $"+model.getSendMoney());
 
     }
 

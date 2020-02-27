@@ -4,8 +4,9 @@ import com.example.muthobank.model.LoginPostModel;
 import com.example.muthobank.model.LoginResponse;
 import com.example.muthobank.model.RegPostResponse;
 import com.example.muthobank.model.RegistrationPostModel;
+import com.example.muthobank.model.SendMoneyPostModel;
+import com.example.muthobank.model.SendMoneyResponse;
 import com.example.muthobank.model.TransactionsPostModel;
-import com.google.gson.JsonArray;
 
 import java.util.List;
 
@@ -13,9 +14,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 public interface ApiInterface {
 
@@ -25,12 +24,10 @@ public interface ApiInterface {
     @POST(HttpParams.API_REGISTRATION)
     Call<RegPostResponse> postReg(@Body RegistrationPostModel postModel);
 
-//    @GET("cash_out/{customer_id}")
-//    Call<List<TransactionsPostModel>> getTransactions(@Query("customer_id") int customerId);
+    @POST(HttpParams.API_SEND_MONEY)
+    Call<SendMoneyResponse> postSendMoney(@Body SendMoneyPostModel postModel);
 
     @GET("cash_out/{customer_id}")
     Call<List<TransactionsPostModel>> getTransactions(@Path("customer_id") int customer_id);
 
-//    @GET("cash_out/{customer_id}")
-//    Call<JsonArray> getTransactions(@Query("customer_id") int customerId);
 }

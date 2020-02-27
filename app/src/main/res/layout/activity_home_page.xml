@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:id="@+id/main_toolbar"
         android:background="@drawable/square_shape">
 
         <LinearLayout
@@ -71,6 +73,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
+        android:id="@+id/ln_layout"
+        android:layout_below="@+id/main_toolbar"
         android:background="@drawable/square_shape"
         android:orientation="horizontal">
 
@@ -146,16 +150,41 @@
 
     </LinearLayout>
 
+    <ProgressBar
+        android:id="@+id/main_progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ln_layout"
+        android:layout_alignBottom="@+id/recycler_view"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
+        android:layout_below="@+id/ln_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:layout_marginBottom="80dp"
+        />
 
 
     <!--    Bottom app bar -->
 
 
-    <include layout="@layout/bottom_appbar"/>
+    <include layout="@layout/bottom_appbar"
+        android:layout_below="@+id/recycler_view"
+        android:layout_marginTop="-80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
 
 
-</LinearLayout>
+</RelativeLayout>

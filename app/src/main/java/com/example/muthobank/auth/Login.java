@@ -140,6 +140,8 @@ public class Login extends AppCompatActivity {
             public void onFailure(Call<LoginResponse> call, Throwable t) {
 
                 Toast.makeText(Login.this, "Server Error!", Toast.LENGTH_SHORT).show();
+                mRegProgress.dismiss();
+
             }
         });
 

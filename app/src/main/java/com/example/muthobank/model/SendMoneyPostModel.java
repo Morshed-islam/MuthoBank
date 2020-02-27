@@ -21,6 +21,23 @@ public class SendMoneyPostModel {
     @Expose
     private String greetings;
 
+
+    public SendMoneyPostModel(String holderBankNumber) {
+        this.holderBankNumber = holderBankNumber;
+    }
+
+
+    public SendMoneyPostModel(String customerId, String sendMoney, String accountHolderName, String holderBankNumber, String greetings) {
+        this.customerId = customerId;
+        this.sendMoney = sendMoney;
+        this.accountHolderName = accountHolderName;
+        this.holderBankNumber = holderBankNumber;
+        this.greetings = greetings;
+    }
+
+    public SendMoneyPostModel() {
+    }
+
     public String getCustomerId() {
         return customerId;
     }

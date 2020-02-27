@@ -8,6 +8,21 @@ public class SendMoneyResponse {
     @Expose
     private String success;
 
+    @SerializedName("error")
+    @Expose
+    private String error;
+
+    public SendMoneyResponse() {
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
     public String getSuccess() {
         return success;
     }

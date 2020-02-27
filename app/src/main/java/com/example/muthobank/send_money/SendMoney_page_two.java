@@ -5,13 +5,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.muthobank.R;
+import com.example.muthobank.api.ApiInterface;
+import com.example.muthobank.api.ApiUtils;
 import com.example.muthobank.app.SharedPreferenceManager;
+import com.example.muthobank.model.SendMoneyPostModel;
+import com.example.muthobank.model.SendMoneyResponse;
+
+import java.io.IOException;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SendMoney_page_two extends AppCompatActivity {
 
@@ -41,12 +52,10 @@ public class SendMoney_page_two extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 String mCurreency = _senderCurrency.getText().toString();
                 String mCurrencyType = _senderCurrencyType.getSelectedItem().toString();
                 String mBankNumber = _senderBankAccount.getText().toString();
                 String mHolderName= _senderHolderName.getText().toString();
-
 
                 if (TextUtils.isEmpty(mCurreency) || TextUtils.isEmpty(mBankNumber) || TextUtils.isEmpty(mHolderName)){
 
@@ -67,9 +76,12 @@ public class SendMoney_page_two extends AppCompatActivity {
                 }else {
 
                     preferenceManager.createSendMoneySession(ed_amount,mBankNumber,mHolderName);
+
+//                    bankAccountExist(mBankNumber);
+
+                    //TODO
                     startActivity(new Intent(getApplicationContext(),SendMoney_page_three.class));
                 }
-
 
 
             }
@@ -82,6 +94,53 @@ public class SendMoney_page_two extends AppCompatActivity {
         _senderCurrencyType= findViewById(R.id.sender_currency_type);
         _senderHolderName= findViewById(R.id.sender_holder_name);
         _senderBankAccount= findViewById(R.id.sender_bank_number);
+
+    }
+
+
+    private void bankAccountExist(String bank_number){
+
+        SendMoneyPostModel sendMoneyPostModel = new SendMoneyPostModel(bank_number);
+        ApiInterface apiInterface = ApiUtils.getApiInterface();
+        Call<SendMoneyResponse> call = apiInterface.postSendMoney(sendMoneyPostModel);
+
+        call.enqueue(new Callback<SendMoneyResponse>() {
+            @Override
+            public void onResponse(Call<SendMoneyResponse> call, Response<SendMoneyResponse> response) {
+
+                if (response.isSuccessful()){
+                    Log.i("send_money", "onResponse: "+response.body().getSuccess());
+
+                }else {
+
+                    Toast.makeText(SendMoney_page_two.this, "Account not found!", Toast.LENGTH_SHORT).show();
+                    try {
+                        Log.i("send_money", "onResponse: "+response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+//                try {
+//                    Log.i("send_money", "onResponse: "+response.errorBody().string());
+//                    int length = response.errorBody().toString().length();
+//                    Log.i("send_money", "onResponse: "+length);
+//                    Toast.makeText(SendMoney_page_two.this, ""+response.errorBody().string(), Toast.LENGTH_SHORT).show();
+//
+//                    Log.i("send_money", "onResponse: "+response.errorBody().toString().substring(9,length));
+////                    Toast.makeText(SendMoney_page_two.this, ""+response.errorBody().string().substring(9,lenght), Toast.LENGTH_SHORT).show();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+
+            }
+
+            @Override
+            public void onFailure(Call<SendMoneyResponse> call, Throwable t) {
+
+            }
+        });
+
 
     }
 }

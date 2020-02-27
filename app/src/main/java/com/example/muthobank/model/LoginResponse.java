@@ -17,7 +17,7 @@ public class LoginResponse {
     @SerializedName("bank_account")
     @Expose
     private String bankAccount;
-    @SerializedName("amount")
+    @SerializedName("rest_amount")
     @Expose
     private Integer amount;
 

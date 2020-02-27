@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,6 +49,7 @@ public class HomePage extends AppCompatActivity {
     private List<TransactionsPostModel> transactionsPostModels;
     private RecyclerView recyclerView;
     private TransactionsListAdapter adapter;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +71,7 @@ public class HomePage extends AppCompatActivity {
 //        }
 
 
+        progressBar = findViewById(R.id.main_progressBar);
         transactionsPostModels = new ArrayList<>();
 
         recyclerView = findViewById(R.id.recycler_view);
@@ -103,23 +106,24 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        getTransactions();
+        int id = preferenceManager.getID(SharedPreferenceManager.KEY_ID,0);
+        getTransactions(id);
 
     }
 
 
-
-    private void getTransactions(){
+    private void getTransactions(int customer_id){
 
         ApiInterface apiInterface = ApiUtils.getApiInterface();
-        Call<List<TransactionsPostModel>> call = apiInterface.getTransactions(4);
+        Call<List<TransactionsPostModel>> call = apiInterface.getTransactions(customer_id);
         call.enqueue(new Callback<List<TransactionsPostModel>>() {
             @Override
             public void onResponse(Call<List<TransactionsPostModel>> call, Response<List<TransactionsPostModel>> response) {
 
                 if (response.isSuccessful()) {
 
-                    Toast.makeText(HomePage.this, "Successful!", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
+//                    Toast.makeText(HomePage.this, "Successful!", Toast.LENGTH_SHORT).show();
 
                     for(TransactionsPostModel model: response.body()) {
 //                        System.out.println(model.toString());
@@ -130,12 +134,6 @@ public class HomePage extends AppCompatActivity {
                     }
 
 
-//                    String val = response.body().toString();
-//                    Type type = new TypeToken<List<TransactionsPostModel>>(){}.getType();
-//                    transactionsPostModels = getTransactionListFromJson(val,type);
-//                    Log.i("values", "onResponse: "+transactionsPostModels.toString());
-
-
                 }
             }
 
@@ -144,28 +142,12 @@ public class HomePage extends AppCompatActivity {
 
                 Toast.makeText(HomePage.this, "Error!", Toast.LENGTH_SHORT).show();
                 Log.i("data", "onResponse: "+t.getMessage());
+                progressBar.setVisibility(View.GONE);
 
             }
         });
 
     }
-
-
-//    public static <T> List<T> getTransactionListFromJson(String jsonString, Type type) {
-//        if (!isValid(jsonString)) {
-//            return null;
-//        }
-//        return new Gson().fromJson(jsonString, type);
-//    }
-//
-//    public static boolean isValid(String json) {
-//        try {
-//            new JsonParser().parse(json);
-//            return true;
-//        } catch (JsonSyntaxException jse) {
-//            return false;
-//        }
-//    }
 
 
 }
