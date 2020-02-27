@@ -47,8 +47,8 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
             android:src="@drawable/user"
             android:layout_gravity="center"
             />
@@ -99,9 +99,6 @@
                 android:layout_height="wrap_content"
                 android:text="Add New Recipient"
                 android:textColor="#fff"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="@dimen/margin_16dp"
-                android:layout_marginRight="@dimen/margin_16dp"
                 android:background="@drawable/button_pressed"
                 />
 

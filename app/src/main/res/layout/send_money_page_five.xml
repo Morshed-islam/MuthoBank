@@ -162,10 +162,7 @@
                 android:id="@+id/page_five_sendBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_10"
                 android:layout_marginTop="@dimen/margin_16dp"
-                android:layout_marginRight="@dimen/margin_10"
-                android:layout_marginBottom="20dp"
                 android:background="@drawable/button_pressed"
                 android:text="Send"
                 android:textColor="#fff" />
