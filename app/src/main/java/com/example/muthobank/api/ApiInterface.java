@@ -5,6 +5,7 @@ import com.example.muthobank.model.LoginResponse;
 import com.example.muthobank.model.RegPostResponse;
 import com.example.muthobank.model.RegistrationPostModel;
 import com.example.muthobank.model.TransactionsPostModel;
+import com.google.gson.JsonArray;
 
 import java.util.List;
 
@@ -24,6 +25,12 @@ public interface ApiInterface {
     @POST(HttpParams.API_REGISTRATION)
     Call<RegPostResponse> postReg(@Body RegistrationPostModel postModel);
 
+//    @GET("cash_out/{customer_id}")
+//    Call<List<TransactionsPostModel>> getTransactions(@Query("customer_id") int customerId);
+
     @GET("cash_out/{customer_id}")
-    Call<List<TransactionsPostModel>> getTransactions(@Query("customer_id") int customerId);
+    Call<List<TransactionsPostModel>> getTransactions(@Path("customer_id") int customer_id);
+
+//    @GET("cash_out/{customer_id}")
+//    Call<JsonArray> getTransactions(@Query("customer_id") int customerId);
 }

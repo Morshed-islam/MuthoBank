@@ -27,6 +27,9 @@ public class TransactionsPostModel {
     @Expose
     private String updatedAt;
 
+    public TransactionsPostModel() {
+    }
+
     public Integer getId() {
         return id;
     }
