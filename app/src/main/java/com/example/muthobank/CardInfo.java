@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ public class CardInfo extends AppCompatActivity {
     private Button _logOut;
     private SharedPreferenceManager preferenceManager;
     private ImageView backToHome;
+    private LinearLayout _bankAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,7 @@ public class CardInfo extends AppCompatActivity {
         preferenceManager = new SharedPreferenceManager(getApplicationContext());
         initViews();
 
-        HashMap<String, String> user = preferenceManager.getUserDetails();
+        final HashMap<String, String> user = preferenceManager.getUserDetails();
 
         String card_number = user.get(SharedPreferenceManager.KEY_CARD_NUMBER);
         String name = user.get(SharedPreferenceManager.KEY_NAME);
@@ -46,6 +48,13 @@ public class CardInfo extends AppCompatActivity {
                 Intent home = new Intent(getApplicationContext(), HomePage.class);
                 home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(home);
+            }
+        });
+
+        _bankAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(CardInfo.this, "Bank Number: "+user.get(SharedPreferenceManager.KEY_BANK_ACCOUNT), Toast.LENGTH_LONG).show();
             }
         });
 
@@ -66,6 +75,8 @@ public class CardInfo extends AppCompatActivity {
         _gCardValid = findViewById(R.id.tv_validity);
         _logOut = findViewById(R.id.btn_log_out);
         backToHome = findViewById(R.id.card_back_to_home);
+        _bankAccount = findViewById(R.id.cards_bank_account);
+
 
     }
 }

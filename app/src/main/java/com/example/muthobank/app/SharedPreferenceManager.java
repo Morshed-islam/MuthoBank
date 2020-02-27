@@ -149,6 +149,7 @@ public class SharedPreferenceManager {
         user.put(KEY_CARD_NUMBER, pref.getString(KEY_CARD_NUMBER, ""));
         user.put(KEY_NAME, pref.getString(KEY_NAME, ""));
         user.put(KEY_VALID_DATE, pref.getString(KEY_VALID_DATE, ""));
+        user.put(KEY_BANK_ACCOUNT, pref.getString(KEY_BANK_ACCOUNT, ""));
 
 
         // return user
