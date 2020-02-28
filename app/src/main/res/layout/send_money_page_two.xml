@@ -101,6 +101,8 @@
             android:maxLength="8"
             android:hint="Bank Number" />
 
+
+
     </LinearLayout>
 
     <LinearLayout
