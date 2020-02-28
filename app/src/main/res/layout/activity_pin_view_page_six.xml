@@ -1,36 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".send_money.PinView_page_six">
+    android:background="@color/mine_shaft"
+    >
 
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="104dp"
+        android:visibility="invisible"
+        android:src="@drawable/ic_home2" />
 
-<!--    <com.chaos.view.PinView-->
-<!--        android:id="@+id/firstPinView"-->
-<!--        style="@style/PinWidget.PinView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:cursorVisible="true"-->
-<!--        android:hint="Hint."-->
-<!--        android:inputType="text"-->
-<!--        android:itemBackground="@mipmap/ic_launcher"-->
-<!--        android:padding="@dimen/common_padding"-->
-<!--        android:textColor="@color/text_colors"-->
-<!--        android:textSize="18sp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:cursorColor="@color/line_selected"-->
-<!--        app:cursorWidth="2dp"-->
-<!--        app:hideLineWhenFilled="true"-->
-<!--        app:itemCount="5"-->
-<!--        app:itemHeight="48dp"-->
-<!--        app:itemRadius="4dp"-->
-<!--        app:itemSpacing="0dp"-->
-<!--        app:itemWidth="48dp"-->
-<!--        app:lineColor="@color/line_colors"-->
-<!--        app:lineWidth="2dp"-->
-<!--        app:viewType="rectangle" />-->
+    <TextView
+        android:id="@+id/profile_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:fontFamily="sans-serif-thin"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="Please Enter Your Pin"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
 
-</LinearLayout>
+    <com.andrognito.pinlockview.IndicatorDots
+        android:id="@+id/indicator_dots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:dotEmptyBackground="@drawable/empty_round_circle"
+        app:dotFilledBackground="@drawable/pin_circle"
+        android:layout_below="@id/profile_name"
+        app:dotDiameter="18dp"
+        app:dotSpacing="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp" />
+
+    <com.andrognito.pinlockview.PinLockView
+        android:id="@+id/pin_lock_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/indicator_dots"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        app:keypadButtonSize="72dp"
+        app:keypadTextColor="#000"
+        app:keypadShowDeleteButton="true"
+        app:keypadDeleteButtonPressedColor="@color/red"
+        app:keypadTextSize="18dp" />
+
+</RelativeLayout>

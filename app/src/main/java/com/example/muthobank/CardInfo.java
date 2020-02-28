@@ -37,7 +37,7 @@ public class CardInfo extends AppCompatActivity {
         String name = user.get(SharedPreferenceManager.KEY_NAME);
         String valid_date = user.get(SharedPreferenceManager.KEY_VALID_DATE);
         String val = card_number.substring(11, 15);
-        _gCardNumber.setText("**** **** **** " + val);
+        _gCardNumber.setText(val);
         _gCardName.setText("" + name);
         _gCardValid.setText("" + valid_date);
 //        Toast.makeText(this, ""+valid_date, Toast.LENGTH_SHORT).show();
