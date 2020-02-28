@@ -4,13 +4,15 @@
     <color name="colorPrimaryDark">#F25362</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="red">#F25362</color>
+    <color name="red">#EB3349</color>
     <color name="ash_red">#DF7680</color>
     <color name="gold">#4FA7EE</color>
     <color name="grey">#CC5757</color>
 
 
     <color name="card_text_color">#FFFFFF</color>
+    <color name="green">#1F7922</color>
+    <color name="tia">#2ED573</color>
     <color name="card_label_color">#D4D9DC</color>
     <color name="card_cvv_color">#383838</color>
     <color name="CTA_text">#FFFFFF</color>

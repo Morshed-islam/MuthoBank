@@ -19,6 +19,7 @@
     <string name="currency_prompt">Choose</string>
 
     <string-array name="currency_arrays">
+        <item></item>
         <item>TAKA</item>
         <item>INR</item>
         <item>USD</item>
