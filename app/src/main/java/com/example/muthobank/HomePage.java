@@ -125,12 +125,20 @@ public class HomePage extends AppCompatActivity {
                 if (response.isSuccessful()) {
 
                     progressBar.setVisibility(View.GONE);
-                    _no_transactions_history.setVisibility(View.GONE);
 
+                    TransactionsPostModel postModel = new TransactionsPostModel();
+
+
+                    if (postModel.getId() == null){
+                        Log.i("values", "onResponse: Null value");
+                        _no_transactions_history.setVisibility(View.VISIBLE);
+
+                    }
 
                     for(TransactionsPostModel model: response.body()) {
 //                        System.out.println(model.toString());
                         Log.i("values", "onResponse: "+model.getAccountHolderName());
+                        _no_transactions_history.setVisibility(View.GONE);
                         transactionsPostModels.add(model);
                         adapter.notifyDataSetChanged();
                         Log.i("values", "below onResponse: "+response.body().toString());

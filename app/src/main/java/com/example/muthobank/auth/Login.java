@@ -118,7 +118,7 @@ public class Login extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Log.d("values", "onResponse: " + response.body().getSuccess());
                     int amount = response.body().getAmount();
-                    Toast.makeText(Login.this, ""+amount, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(Login.this, ""+amount, Toast.LENGTH_SHORT).show();
                     mRegProgress.dismiss();
                     preferenceManager.createLoginSession(inputPhone, inputPassword, response.body().getCardNumber(), response.body().getBankAccount(),
                             response.body().getName(), response.body().getValid_date());
