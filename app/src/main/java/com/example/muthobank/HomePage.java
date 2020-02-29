@@ -31,6 +31,7 @@ import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -60,7 +61,6 @@ public class HomePage extends AppCompatActivity {
         preferenceManager = new SharedPreferenceManager(getApplicationContext());
         preferenceManager.checkLogin();
 
-
 //        Bundle b = getIntent().getExtras();
 //        _gAmount = findViewById(R.id.tv_amount);
 //
@@ -89,7 +89,11 @@ public class HomePage extends AppCompatActivity {
         cardDetailsBtn = findViewById(R.id.card_details_btn);
         _gAmount = findViewById(R.id.tv_amount);
 
-        _gAmount.setText("$"+preferenceManager.getAmount(SharedPreferenceManager.KEY_AMOUNT,0));
+
+        DecimalFormat formatter = new DecimalFormat("#,###,###");
+        String final_amount = formatter.format(preferenceManager.getAmount(SharedPreferenceManager.KEY_AMOUNT,0));
+
+        _gAmount.setText("$"+final_amount);
 
 
         sendMoneyBtn.setOnClickListener(new View.OnClickListener() {

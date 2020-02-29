@@ -9,8 +9,6 @@
     <!--        android:layout_height="match_parent"-->
     <!--        android:gravity="center"-->
     <!--        android:orientation="horizontal">-->
-
-
     <!--    </LinearLayout>-->
 
     <LinearLayout
@@ -20,7 +18,6 @@
         android:background="@drawable/square_shape"
         android:gravity="center"
         android:orientation="horizontal">
-
 
         <ImageView
             android:id="@+id/card_back_to_home"
@@ -101,7 +98,6 @@
 
                     </LinearLayout>
 
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -112,48 +108,69 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="serif"
                             android:text="**** **** **** "
+                            android:layout_gravity="bottom"
                             android:textColor="@color/card_text_color"
                             android:textSize="18sp" />
 
-                        <TextView
-                            android:id="@+id/tv_card_number"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="serif"
-                            android:text="4323"
-                            android:textColor="@color/card_text_color"
-                            android:textSize="20sp" />
 
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:orientation="horizontal">
-
-                        <TextView
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/items_inbetween_small"
-                            android:textColor="@color/card_text_color"
-                            android:textSize="8dp"
-                            android:text="Valid"
-                            />
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/tv_validity"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="30dp"
-                            android:fontFamily="serif"
-                            android:gravity="left"
-                            android:text="@string/card_validity_sample"
-                            android:textColor="@color/card_text_color"
-                            android:textSize="18sp" />
+                            <TextView
+                                android:id="@+id/tv_validity"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="30dp"
+                                android:fontFamily="serif"
+                                android:gravity="left"
+                                android:textStyle="bold"
+                                android:text="@string/card_validity_sample"
+                                android:textColor="@color/card_text_color"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/tv_card_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif"
+                                android:text="4323"
+                                android:textStyle="bold"
+                                android:textColor="@color/card_text_color"
+                                android:textSize="20sp" />
+                        </LinearLayout>
+
 
                     </LinearLayout>
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="end"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginRight="@dimen/items_inbetween_small"-->
+<!--                            android:textColor="@color/card_text_color"-->
+<!--                            android:textSize="8dp"-->
+<!--                            android:text="Valid"-->
+<!--                            />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/tv_validity"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginRight="30dp"-->
+<!--                            android:fontFamily="serif"-->
+<!--                            android:gravity="left"-->
+<!--                            android:text="@string/card_validity_sample"-->
+<!--                            android:textColor="@color/card_text_color"-->
+<!--                            android:textSize="18sp" />-->
+
+<!--                    </LinearLayout>-->
 
 
                     <!--                    <LinearLayout-->
