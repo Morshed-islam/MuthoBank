@@ -17,8 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginBottom="15dp"
-        android:gravity="center"
         android:background="@drawable/square_shape"
+        android:gravity="center"
         android:orientation="horizontal">
 
 
@@ -28,13 +28,13 @@
             android:layout_height="50dp"
             android:src="@drawable/ic_arrow_left" />
 
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="center_horizontal"-->
-<!--            android:text="Card Control Center"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:textSize="28dp" />-->
+        <!--        <TextView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:gravity="center_horizontal"-->
+        <!--            android:text="Card Control Center"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textSize="28dp" />-->
 
         <TextView
             android:id="@+id/tv_page_five_toolbar"
@@ -54,19 +54,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_16dp"
             android:orientation="vertical">
 
             <!--    credit card view-->
 
             <RelativeLayout
                 android:id="@+id/rl_card"
-                android:layout_width="320dp"
-                android:layout_height="220dp"
+                android:layout_width="280dp"
+                android:layout_height="170dp"
                 android:layout_marginLeft="@dimen/activity_vertical_margin"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_marginRight="@dimen/activity_vertical_margin"
@@ -77,20 +77,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:paddingLeft="@dimen/activity_horizontal_margin">
-
+                    android:paddingLeft="@dimen/margin_10">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-
                         <ImageView
-                            android:layout_width="@dimen/chip_width"
-                            android:layout_height="@dimen/chip_height"
+                            android:layout_width="50dp"
+                            android:layout_height="30dp"
                             android:layout_marginTop="30dp"
-                            android:layout_marginBottom="@dimen/items_inbetween"
                             android:src="@drawable/ic_chip" />
 
                         <TextView
@@ -99,21 +96,36 @@
                             android:gravity="right"
                             android:text="MuthoBank"
                             android:textColor="#fff"
-                            android:textSize="25sp" />
-
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
 
-                    <TextView
-                        android:id="@+id/tv_card_number"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:fontFamily="serif"
-                        android:text="@string/card_number_sample"
-                        android:textColor="@color/card_text_color"
-                        android:textSize="25sp" />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="serif"
+                            android:text="**** **** **** "
+                            android:textColor="@color/card_text_color"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/tv_card_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="serif"
+                            android:text="4323"
+                            android:textColor="@color/card_text_color"
+                            android:textSize="20sp" />
+
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -125,45 +137,98 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="@dimen/items_inbetween_small"
-                            android:text="@string/card_validity_label"
                             android:textColor="@color/card_text_color"
-                            android:textSize="@dimen/xsmall_text" />
+                            android:textSize="8dp"
+                            android:text="Valid"
+                            />
 
                         <TextView
                             android:id="@+id/tv_validity"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="30dp"
+                            android:fontFamily="serif"
+                            android:gravity="left"
                             android:text="@string/card_validity_sample"
                             android:textColor="@color/card_text_color"
-                            android:textSize="@dimen/large_text" />
+                            android:textSize="18sp" />
 
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/tv_member_name"
+
+                    <!--                    <LinearLayout-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_gravity="end"-->
+                    <!--                        android:orientation="horizontal">-->
+
+                    <!--                        <TextView-->
+                    <!--                            android:layout_width="wrap_content"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:layout_marginRight="@dimen/items_inbetween_small"-->
+                    <!--                            android:text="@string/card_validity_label"-->
+                    <!--                            android:textColor="@color/card_text_color"-->
+                    <!--                            android:textSize="8dp" />-->
+
+                    <!--                        <TextView-->
+                    <!--                            android:id="@+id/tv_validity"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:text="@string/card_validity_sample"-->
+                    <!--                            android:textColor="@color/card_text_color"-->
+                    <!--                            android:textSize="@dimen/large_text" />-->
+
+                    <!--                    </LinearLayout>-->
+
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:text="@string/card_name_sample"
-                        android:textColor="@color/card_text_color"
-                        android:textSize="20sp" />
+                        android:layout_marginRight="@dimen/margin_10"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/tv_member_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/card_name_sample"
+                            android:textColor="@color/card_text_color"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/ivType"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="serif"
+                            android:gravity="bottom|right"
+                            android:text="VISA"
+                            android:textColor="#fff"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                    <!--                    <TextView-->
+                    <!--                        android:id="@+id/ivType"-->
+                    <!--                        android:layout_width="@dimen/cardtype_width"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_alignParentRight="true"-->
+                    <!--                        android:layout_alignParentBottom="true"-->
+                    <!--                        android:layout_marginRight="@dimen/items_inbetween_small"-->
+                    <!--                        android:layout_marginBottom="@dimen/items_inbetween_small"-->
+                    <!--                        android:fontFamily="serif"-->
+                    <!--                        android:gravity="bottom|right"-->
+                    <!--                        android:text="VISA"-->
+                    <!--                        android:textColor="#fff"-->
+                    <!--                        android:textSize="22sp"-->
+                    <!--                        android:textStyle="bold" />-->
 
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/ivType"
-                    android:layout_width="@dimen/cardtype_width"
-                    android:layout_height="@dimen/cardtype_height"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginRight="@dimen/items_inbetween_small"
-                    android:layout_marginBottom="@dimen/items_inbetween_small"
-                    android:fontFamily="serif"
-                    android:gravity="bottom|right"
-                    android:text="VISA"
-                    android:textColor="#fff"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
 
             </RelativeLayout>
 
@@ -175,7 +240,7 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="25dp"
-                android:layout_marginBottom="@dimen/margin_10"
+                android:layout_marginBottom="@dimen/margin_16dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -204,7 +269,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Account" />
+                        android:text="Account"
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 
@@ -228,7 +294,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Pin/Card Number" />
+                        android:text="Pin/Card Number"
+                        android:textSize="12sp" />
 
 
                 </LinearLayout>
@@ -253,7 +320,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Card Block" />
+                        android:text="Card Block"
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 
@@ -277,7 +345,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Add Money" />
+                        android:text="Add Money"
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 
@@ -303,7 +372,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="40dp"
+                    android:layout_width="30dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="10dp"
@@ -326,6 +395,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textStyle="bold"
                         android:text="Account details,Set Pin,Block Card"
                         android:textSize="16sp" />
 
@@ -342,11 +412,11 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="40dp"
+                    android:layout_width="30dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="10dp"
-                    android:src="@drawable/ic_card" />
+                    android:src="@drawable/ic_account" />
 
                 <LinearLayout
                     android:id="@+id/cards_bank_account"
@@ -366,6 +436,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textStyle="bold"
                         android:text="Balance, Loan, Overdraft"
                         android:textSize="16sp" />
 
@@ -378,6 +449,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="bottom"
+                android:layout_marginTop="30dp"
                 android:orientation="vertical">
 
                 <Button
@@ -385,7 +457,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_10"
-                    android:layout_marginTop="10dp"
                     android:layout_marginRight="@dimen/margin_10"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/button_pressed"

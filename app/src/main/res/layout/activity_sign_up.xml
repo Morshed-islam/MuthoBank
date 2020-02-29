@@ -60,11 +60,9 @@
             android:id="@+id/ed_first_name"
             android:layout_width="match_parent"
             android:layout_height="65dp"
-            android:textColorHint="#000"
             android:background="@drawable/edidtext_shape"
             android:inputType="textPersonName"
             android:padding="10dp"
-            android:text="morshed"
             android:layout_marginBottom="@dimen/margin_16dp"
             android:layout_marginLeft="@dimen/margin_16dp"
             android:layout_marginRight="@dimen/margin_16dp"
@@ -76,8 +74,6 @@
             android:layout_height="65dp"
             android:background="@drawable/edidtext_shape"
             android:inputType="textPersonName"
-            android:textColorHint="#000"
-            android:text="morshed"
             android:layout_marginBottom="@dimen/margin_16dp"
             android:layout_marginLeft="@dimen/margin_16dp"
             android:layout_marginRight="@dimen/margin_16dp"
@@ -94,8 +90,6 @@
             android:background="@drawable/edidtext_shape"
             android:inputType="textEmailAddress"
             android:padding="10dp"
-            android:text="morshed2@gmail.com"
-            android:textColorHint="#000"
             android:hint="Email Address" />
 
         <EditText
@@ -108,8 +102,7 @@
             android:background="@drawable/edidtext_shape"
             android:inputType="phone"
             android:padding="10dp"
-            android:text="01723505090"
-            android:textColorHint="#000"
+            android:maxLength="11"
             android:hint="Phone" />
 
         <EditText
@@ -118,12 +111,11 @@
             android:layout_height="65dp"
             android:background="@drawable/edidtext_shape"
             android:inputType="numberPassword"
-            android:textColorHint="#000"
             android:layout_marginBottom="@dimen/margin_16dp"
             android:layout_marginLeft="@dimen/margin_16dp"
+            android:maxLength="8"
             android:layout_marginRight="@dimen/margin_16dp"
             android:padding="10dp"
-            android:text="1111"
             android:hint="Password"/>
 
         <TextView
@@ -155,8 +147,7 @@
                 android:background="@drawable/edidtext_shape"
                 android:inputType="textPersonName"
                 android:padding="10dp"
-                android:text="10"
-                android:textColorHint="#000"
+                android:maxLength="2"
                 android:hint="Day" />
 
             <EditText
@@ -166,11 +157,10 @@
                 android:layout_height="65dp"
                 android:background="@drawable/edidtext_shape"
                 android:ems="10"
-                android:text="10"
                 android:layout_marginLeft="10dp"
                 android:inputType="textPersonName"
-                android:textColorHint="#000"
                 android:padding="10dp"
+                android:maxLength="2"
                 android:hint="Month" />
 
             <EditText
@@ -181,8 +171,7 @@
                 android:layout_marginLeft="10dp"
                 android:background="@drawable/edidtext_shape"
                 android:ems="10"
-                android:textColorHint="#000"
-                android:text="1999"
+                android:maxLength="4"
                 android:inputType="textPersonName"
                 android:padding="10dp"
                 android:hint="Year" />

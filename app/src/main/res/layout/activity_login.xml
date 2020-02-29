@@ -47,10 +47,10 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/edidtext_shape"
             android:hint="Phone"
+            android:maxLength="11"
             android:inputType="textPersonName"
             android:padding="10dp"
-            android:text="01832817105"
-            android:textColorHint="#4D4949"
+            android:text=""
            />
 
 
@@ -60,10 +60,9 @@
             android:layout_height="65dp"
             android:background="@drawable/edidtext_shape"
             android:hint="Password"
+            android:maxLength="8"
             android:inputType="numberPassword"
             android:padding="10dp"
-            android:text="1243"
-            android:textColorHint="#4D4949"
         />
     </LinearLayout>
 

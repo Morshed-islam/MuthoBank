@@ -45,6 +45,7 @@ public class HomePage extends AppCompatActivity {
     private String card_number, bank_number;
     private String amount;
     private TextView _gAmount;
+    private TextView _no_transactions_history;
     private SharedPreferenceManager preferenceManager;
     private List<TransactionsPostModel> transactionsPostModels;
     private RecyclerView recyclerView;
@@ -71,6 +72,7 @@ public class HomePage extends AppCompatActivity {
 //        }
 
 
+        _no_transactions_history = findViewById(R.id.no_transaction_history);
         progressBar = findViewById(R.id.main_progressBar);
         transactionsPostModels = new ArrayList<>();
 
@@ -123,11 +125,20 @@ public class HomePage extends AppCompatActivity {
                 if (response.isSuccessful()) {
 
                     progressBar.setVisibility(View.GONE);
-//                    Toast.makeText(HomePage.this, "Successful!", Toast.LENGTH_SHORT).show();
+
+                    TransactionsPostModel postModel = new TransactionsPostModel();
+
+
+                    if (postModel.getId() == null){
+                        Log.i("values", "onResponse: Null value");
+                        _no_transactions_history.setVisibility(View.VISIBLE);
+
+                    }
 
                     for(TransactionsPostModel model: response.body()) {
 //                        System.out.println(model.toString());
                         Log.i("values", "onResponse: "+model.getAccountHolderName());
+                        _no_transactions_history.setVisibility(View.GONE);
                         transactionsPostModels.add(model);
                         adapter.notifyDataSetChanged();
                         Log.i("values", "below onResponse: "+response.body().toString());
@@ -143,6 +154,7 @@ public class HomePage extends AppCompatActivity {
                 Toast.makeText(HomePage.this, "Error!", Toast.LENGTH_SHORT).show();
                 Log.i("data", "onResponse: "+t.getMessage());
                 progressBar.setVisibility(View.GONE);
+                _no_transactions_history.setVisibility(View.VISIBLE);
 
             }
         });
