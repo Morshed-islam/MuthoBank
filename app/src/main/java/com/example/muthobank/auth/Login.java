@@ -37,7 +37,6 @@ public class Login extends AppCompatActivity {
     private SharedPreferenceManager preferenceManager;
     private ProgressDialog mRegProgress;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

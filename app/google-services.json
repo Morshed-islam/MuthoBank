@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "1007040316942",
+    "firebase_url": "https://client-project-e2b05.firebaseio.com",
+    "project_id": "client-project-e2b05",
+    "storage_bucket": "client-project-e2b05.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007040316942:android:a16453f79a0ea3d4705e5f",
+        "android_client_info": {
+          "package_name": "com.example.muthobank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007040316942-ip1jua1orro3tlte659igqnkg5mni199.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxbquCi8sv2SWe_RYUOUUwUWiKhPvl9QA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007040316942-omrjpef38ed9h88gaqng6fgs2uc50d9n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007040316942:android:cd1ae20b869706ab705e5f",
+        "android_client_info": {
+          "package_name": "com.thotsocial.online"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007040316942-mp020qv9svl6kqqe1h1rpanq86h3tvnp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.thotsocial.online",
+            "certificate_hash": "2f29ea5115fb87d17c1acfac6c7be3589ca508cd"
+          }
+        },
+        {
+          "client_id": "1007040316942-bs1ebulgt6heni52tupdicbreps6gr5t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.thotsocial.online",
+            "certificate_hash": "5585df354db8d5648a05f9037db4966840ac756c"
+          }
+        },
+        {
+          "client_id": "1007040316942-ip1jua1orro3tlte659igqnkg5mni199.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxbquCi8sv2SWe_RYUOUUwUWiKhPvl9QA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007040316942-omrjpef38ed9h88gaqng6fgs2uc50d9n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
