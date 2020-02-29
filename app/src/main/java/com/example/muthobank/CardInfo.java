@@ -27,7 +27,6 @@ public class CardInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cards);
 
-
         preferenceManager = new SharedPreferenceManager(getApplicationContext());
         initViews();
 
