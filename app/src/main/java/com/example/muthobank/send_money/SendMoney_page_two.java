@@ -17,8 +17,14 @@ import com.example.muthobank.api.ApiUtils;
 import com.example.muthobank.app.SharedPreferenceManager;
 import com.example.muthobank.model.SendMoneyPostModel;
 import com.example.muthobank.model.SendMoneyResponse;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,9 +32,13 @@ import retrofit2.Response;
 
 public class SendMoney_page_two extends AppCompatActivity {
 
-    private EditText _senderCurrency,_senderHolderName,_senderBankAccount;
+    private static final String TAG = "SEND_MONEY";
+    private EditText  _senderHolderName, _senderBankAccount;
+
     private Spinner _senderCurrencyType;
     private SharedPreferenceManager preferenceManager;
+    private DatabaseReference myRef;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +46,13 @@ public class SendMoney_page_two extends AppCompatActivity {
         setContentView(R.layout.send_money_page_two);
 
         preferenceManager = new SharedPreferenceManager(getApplicationContext());
+        myRef = FirebaseDatabase.getInstance().getReference("MuthoBank");
+        
         initViews();
+
+        final HashMap<String, String> user = preferenceManager.getUserDetails();
+        final String bankNumCheck  = user.get(SharedPreferenceManager.KEY_BANK_ACCOUNT);
+
 
         findViewById(R.id.back_to_page_one).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,37 +68,41 @@ public class SendMoney_page_two extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String mCurreency = _senderCurrency.getText().toString();
+//                String mCurreency = _senderCurrency.getText().toString();
                 String mCurrencyType = _senderCurrencyType.getSelectedItem().toString();
                 String mBankNumber = _senderBankAccount.getText().toString();
-                String mHolderName= _senderHolderName.getText().toString();
+                String mHolderName = _senderHolderName.getText().toString();
 
-                if (TextUtils.isEmpty(mCurreency) || TextUtils.isEmpty(mBankNumber) || TextUtils.isEmpty(mHolderName)){
+                if ( TextUtils.isEmpty(mBankNumber) || TextUtils.isEmpty(mHolderName)
+                    || _senderCurrencyType == null && _senderCurrencyType.getSelectedItem() ==null) {
 
                     Toast.makeText(SendMoney_page_two.this, "All Field Required!", Toast.LENGTH_SHORT).show();
                     return;
-                }
-                int ed_amount = Integer.parseInt(_senderCurrency.getText().toString());
-
-                if (ed_amount < 5){
-                    Toast.makeText(SendMoney_page_two.this, "Minimum Sending balance 5", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                int amount = preferenceManager.getAmount(SharedPreferenceManager.KEY_AMOUNT,0);
-                if (ed_amount > amount ){
-                    Toast.makeText(SendMoney_page_two.this, "You have not Enough balance", Toast.LENGTH_SHORT).show();
-                    return;
                 }else {
 
-                    preferenceManager.createSendMoneySession(ed_amount,mBankNumber,mHolderName);
+                    if (bankNumCheck.equals(mBankNumber)){
+                        Toast.makeText(SendMoney_page_two.this, "You can not send money own Bank Account!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }else {
 
-//                    bankAccountExist(mBankNumber);
+                        Intent next = new Intent(getApplicationContext(), SendMoney_page_three.class);
 
-                    //TODO
-                    startActivity(new Intent(getApplicationContext(),SendMoney_page_three.class));
+                        next.putExtra("PAGE_THREE_CURRENCY_TYPE",mCurrencyType);
+                        next.putExtra("PAGE_THREE_HOLDER_NAME",mHolderName);
+                        next.putExtra("PAGE_THREE_BANK_ACCOUNT",mBankNumber);
+                        startActivity(next);
+
+                    }
+
+
+                    //TODO have to do this part
+//                    bankAccountExist(ed_amount,mBankNumber,mHolderName);
                 }
 
+                //TODO have to do this part
+//                preferenceManager.createSendMoneySession(ed_amount, mBankNumber, mHolderName);
+
+//
 
             }
         });
@@ -90,57 +110,43 @@ public class SendMoney_page_two extends AppCompatActivity {
 
     private void initViews() {
 
-        _senderCurrency = findViewById(R.id.sender_currency);
-        _senderCurrencyType= findViewById(R.id.sender_currency_type);
-        _senderHolderName= findViewById(R.id.sender_holder_name);
-        _senderBankAccount= findViewById(R.id.sender_bank_number);
+//        _senderCurrency = findViewById(R.id.sender_currency);
+        _senderCurrencyType = findViewById(R.id.sender_currency_type);
+        _senderHolderName = findViewById(R.id.sender_holder_name);
+        _senderBankAccount = findViewById(R.id.sender_bank_number);
 
     }
 
 
-    private void bankAccountExist(String bank_number){
+    private void bankAccountExist(final int ed_amount, final String bank_number, final String mHolderName) {
 
-        SendMoneyPostModel sendMoneyPostModel = new SendMoneyPostModel(bank_number);
-        ApiInterface apiInterface = ApiUtils.getApiInterface();
-        Call<SendMoneyResponse> call = apiInterface.postSendMoney(sendMoneyPostModel);
-
-        call.enqueue(new Callback<SendMoneyResponse>() {
+        // Read from the database
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onResponse(Call<SendMoneyResponse> call, Response<SendMoneyResponse> response) {
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
-                if (response.isSuccessful()){
-                    Log.i("send_money", "onResponse: "+response.body().getSuccess());
+                for (DataSnapshot val : dataSnapshot.getChildren()) {
+                    if (!val.getKey().contains(bank_number)) {
+                        Toast.makeText(SendMoney_page_two.this, "Bank Number Does not Exists!", Toast.LENGTH_SHORT).show();
+                    }else {
+                        if (val.getKey().contains(bank_number)){
+                            preferenceManager.createSendMoneySession(ed_amount, bank_number, mHolderName);
+                            startActivity(new Intent(getApplicationContext(), SendMoney_page_three.class));
+                            Log.d(TAG, "Value is: " + val.getValue());
+                        }
 
-                }else {
-
-                    Toast.makeText(SendMoney_page_two.this, "Account not found!", Toast.LENGTH_SHORT).show();
-                    try {
-                        Log.i("send_money", "onResponse: "+response.errorBody().string());
-                    } catch (IOException e) {
-                        e.printStackTrace();
                     }
-
                 }
-//                try {
-//                    Log.i("send_money", "onResponse: "+response.errorBody().string());
-//                    int length = response.errorBody().toString().length();
-//                    Log.i("send_money", "onResponse: "+length);
-//                    Toast.makeText(SendMoney_page_two.this, ""+response.errorBody().string(), Toast.LENGTH_SHORT).show();
-//
-//                    Log.i("send_money", "onResponse: "+response.errorBody().toString().substring(9,length));
-////                    Toast.makeText(SendMoney_page_two.this, ""+response.errorBody().string().substring(9,lenght), Toast.LENGTH_SHORT).show();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-
             }
 
             @Override
-            public void onFailure(Call<SendMoneyResponse> call, Throwable t) {
-
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
 
-
     }
+
+
 }

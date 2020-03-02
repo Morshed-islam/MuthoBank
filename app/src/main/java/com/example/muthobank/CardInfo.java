@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.example.muthobank.app.SharedPreferenceManager;
 
+import org.w3c.dom.Text;
+
 import java.util.HashMap;
 
 public class CardInfo extends AppCompatActivity {
@@ -20,7 +22,7 @@ public class CardInfo extends AppCompatActivity {
     private Button _logOut;
     private SharedPreferenceManager preferenceManager;
     private ImageView backToHome;
-    private LinearLayout _bankAccount;
+    private TextView _bankAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,13 +52,8 @@ public class CardInfo extends AppCompatActivity {
             }
         });
 
-        _bankAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(CardInfo.this, "Bank Number: "+user.get(SharedPreferenceManager.KEY_BANK_ACCOUNT), Toast.LENGTH_LONG).show();
-            }
-        });
 
+        _bankAccount.setText("Account : "+user.get(SharedPreferenceManager.KEY_BANK_ACCOUNT));
 
         _logOut.setOnClickListener(new View.OnClickListener() {
             @Override

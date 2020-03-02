@@ -103,6 +103,7 @@
             android:inputType="phone"
             android:padding="10dp"
             android:maxLength="11"
+            android:visibility="gone"
             android:hint="Phone" />
 
         <EditText
@@ -113,7 +114,7 @@
             android:inputType="numberPassword"
             android:layout_marginBottom="@dimen/margin_16dp"
             android:layout_marginLeft="@dimen/margin_16dp"
-            android:maxLength="8"
+            android:maxLength="4"
             android:layout_marginRight="@dimen/margin_16dp"
             android:padding="10dp"
             android:hint="Password"/>

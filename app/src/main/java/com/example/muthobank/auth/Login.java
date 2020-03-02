@@ -61,7 +61,7 @@ public class Login extends AppCompatActivity {
         createNewAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), SignUp.class));
+                startActivity(new Intent(getApplicationContext(), PhoneLogin.class));
             }
         });
 
@@ -126,7 +126,9 @@ public class Login extends AppCompatActivity {
                     preferenceManager.putPin(SharedPreferenceManager.KEY_PASS, inputPassword);
 
                     //fixed amount to show in salary
-                    preferenceManager.putFixedAmount(SharedPreferenceManager.KEY_FIXED_AMOUNT, amount);
+                    int fixedAmount = response.body().getFixedAmount();
+
+                    preferenceManager.putFixedAmount(SharedPreferenceManager.KEY_FIXED_AMOUNT, fixedAmount);
 
 
                     Intent nextToHome = new Intent(getApplicationContext(), HomePage.class);

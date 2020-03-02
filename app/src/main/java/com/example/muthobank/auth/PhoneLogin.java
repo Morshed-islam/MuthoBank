@@ -293,7 +293,8 @@ public class PhoneLogin extends AppCompatActivity {
                         if (task.isSuccessful()) {
 
                             //TODO get the user info to know that user is already login or not
-                            Get_User_info();
+
+                            gotoSignUpActivity();
                             Toast.makeText(PhoneLogin.this, "Done!", Toast.LENGTH_SHORT).show();
 
                         } else {
@@ -306,8 +307,13 @@ public class PhoneLogin extends AppCompatActivity {
                 });
     }
 
-    private void Get_User_info() {
+    private void gotoSignUpActivity() {
 
+        String phone = phoneText.getText().toString();
+
+        Intent signUp = new Intent(getApplicationContext(),SignUp.class);
+        signUp.putExtra("SIGNUP_PHONE_NUMBER",phone);
+        startActivity(signUp);
 
         //TODO
 //        final String inputPhone = _gPhone.getText().toString().trim();

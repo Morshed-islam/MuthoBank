@@ -60,12 +60,22 @@
 
             <!--    credit card view-->
 
+            <TextView
+                android:id="@+id/cards_bank_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="Account: 1680124836"
+                android:textSize="16sp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center_horizontal"
+                />
+
             <RelativeLayout
                 android:id="@+id/rl_card"
                 android:layout_width="280dp"
                 android:layout_height="170dp"
                 android:layout_marginLeft="@dimen/activity_vertical_margin"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_marginRight="@dimen/activity_vertical_margin"
                 android:background="@drawable/card_square_shape"
                 android:padding="@dimen/activity_horizontal_margin">
@@ -391,7 +401,7 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
+                    android:gravity="top"
                     android:layout_marginLeft="10dp"
                     android:src="@drawable/ic_card" />
 
@@ -400,6 +410,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="@dimen/margin_5dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -430,14 +441,12 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="10dp"
                     android:src="@drawable/ic_account" />
 
                 <LinearLayout
-                    android:id="@+id/cards_bank_account"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
                     android:orientation="vertical">
 
@@ -446,6 +455,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Account"
+                        android:layout_marginTop="@dimen/margin_5dp"
                         android:textColor="@color/black"
                         android:textSize="28sp" />
 
@@ -478,6 +488,7 @@
                     android:background="@drawable/button_pressed"
                     android:padding="5dp"
                     android:text="Log Out"
+                    android:textAllCaps="false"
                     android:textColor="#fff"
                     />
 

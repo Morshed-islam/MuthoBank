@@ -21,6 +21,11 @@ public class LoginResponse {
     @Expose
     private Integer amount;
 
+    @SerializedName("amount")
+    @Expose
+    private Integer fixedAmount;
+
+
     @SerializedName("name")
     @Expose
     private String name;
@@ -30,6 +35,14 @@ public class LoginResponse {
     private String valid_date;
 
     public LoginResponse() {
+    }
+
+    public Integer getFixedAmount() {
+        return fixedAmount;
+    }
+
+    public void setFixedAmount(Integer fixedAmount) {
+        this.fixedAmount = fixedAmount;
     }
 
     public int getId() {

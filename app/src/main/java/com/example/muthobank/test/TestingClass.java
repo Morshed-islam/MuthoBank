@@ -12,6 +12,11 @@ import com.example.muthobank.api.ApiInterface;
 import com.example.muthobank.api.ApiUtils;
 import com.example.muthobank.model.LoginPostModel;
 import com.example.muthobank.model.LoginResponse;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,18 +26,63 @@ public class TestingClass extends AppCompatActivity {
 
     private static final String TAG = "TEST";
 
+
+    private DatabaseReference myRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_testing_class);
 
+        myRef = FirebaseDatabase.getInstance().getReference("MuthoBank");
+
         findViewById(R.id.send_test_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                login();
+//                myRef.child("1723505040").setValue("1723505040");
+
+
+                matchValueInDatabase();
+//                login();
             }
         });
+    }
+
+
+
+//    private boolean bankExits;
+
+    private void matchValueInDatabase(){
+
+        // Read from the database
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+
+                for (DataSnapshot val : dataSnapshot.getChildren()){
+
+                    if (val.getKey().contains("1723505080")){
+                        Log.d(TAG, "Value is: " + val.getValue());
+                    }
+
+//                    Log.d(TAG, "Value is: " + val.toString());
+//
+                }
+
+//                Object value = dataSnapshot.getValue(Object.class);
+//                Log.d(TAG, "Value is: " + value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+
     }
 
 

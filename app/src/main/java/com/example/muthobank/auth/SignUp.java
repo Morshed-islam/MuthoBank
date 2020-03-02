@@ -18,6 +18,9 @@ import com.example.muthobank.api.ApiInterface;
 import com.example.muthobank.api.ApiUtils;
 import com.example.muthobank.model.RegPostResponse;
 import com.example.muthobank.model.RegistrationPostModel;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,10 +28,14 @@ import retrofit2.Response;
 
 public class SignUp extends AppCompatActivity {
 
+    private DatabaseReference myRef;
     private ImageView backToLogin;
     private Button continueBtn;
     private EditText _firstName, _lastName, _emailAddress, _day, _month, _year, _edPassword, _phone;
     private ProgressDialog mRegProgress;
+
+    //get value from intent
+    private String phone;
 
 
     @Override
@@ -36,8 +43,14 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        myRef = FirebaseDatabase.getInstance().getReference("MuthoBank");
         backToLogin = findViewById(R.id.back_to_login);
         initViews();
+
+
+        //get phone number from intent\
+        phone = getIntent().getStringExtra("SIGNUP_PHONE_NUMBER");
+//        Toast.makeText(this, ""+phone, Toast.LENGTH_SHORT).show();
 
         backToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,12 +98,12 @@ public class SignUp extends AppCompatActivity {
         String inputFirstName = _firstName.getText().toString().trim();
         String inputLastName = _lastName.getText().toString().trim();
         String inputEmail = _emailAddress.getText().toString().trim();
-        final String inputPhone = _phone.getText().toString().trim();
+//        final String inputPhone = _phone.getText().toString().trim();
         String inputDay = _day.getText().toString().trim();
         String inputMonth = _month.getText().toString().trim();
         String inputYear = _year.getText().toString().trim();
 
-        if (TextUtils.isEmpty(inputFirstName) || TextUtils.isEmpty(inputLastName) || TextUtils.isEmpty(inputEmail) || TextUtils.isEmpty(inputPhone)
+        if (TextUtils.isEmpty(inputFirstName) || TextUtils.isEmpty(inputLastName) || TextUtils.isEmpty(inputEmail)
                 || TextUtils.isEmpty(inputDay) || TextUtils.isEmpty(inputMonth) || TextUtils.isEmpty(inputYear)) {
             // username / password doesn't match
             Toast.makeText(this, "Login failed.. Required All Field!", Toast.LENGTH_SHORT).show();
@@ -106,7 +119,7 @@ public class SignUp extends AppCompatActivity {
 
         final String inputPass = _edPassword.getText().toString().trim();
 
-        RegistrationPostModel registrationPostModel = new RegistrationPostModel(inputFirstName, inputLastName, inputEmail, inputPhone, dateOfBirth, inputPass);
+        RegistrationPostModel registrationPostModel = new RegistrationPostModel(inputFirstName, inputLastName, inputEmail, phone, dateOfBirth, inputPass);
 
         ApiInterface apiInterface = ApiUtils.getApiInterface();
         Call<RegPostResponse> call = apiInterface.postReg(registrationPostModel);
@@ -118,8 +131,12 @@ public class SignUp extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     mRegProgress.dismiss();
 
+                    //push bank account/phone to fireBase database
+                    // key = 1680124836 -> value 1680124836 that's why using phone in both side
+                    myRef.child(phone).setValue(phone);
+
                     Intent goToLogin = new Intent(getApplicationContext(), Login.class);
-                    goToLogin.putExtra("PHONE", inputPhone);
+                    goToLogin.putExtra("PHONE", phone);
                     goToLogin.putExtra("PASS", inputPass);
                     startActivity(goToLogin);
 

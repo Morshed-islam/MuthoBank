@@ -20,5 +20,6 @@
     <color name="black">#000000</color>
     <color name="ash">#dddddd</color>
 
+    <color name="transparent">#00ffffff</color>
 
 </resources>

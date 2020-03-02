@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "1007040316942-ond5e12g6pe7uauca3kjn834212b2gi9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.muthobank",
+            "certificate_hash": "124766cf40e3a7480a928a018c24e01c6c4eadee"
+          }
+        },
+        {
+          "client_id": "1007040316942-0mlpvl4cb5loohvohuq2rbq797r09361.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.muthobank",
+            "certificate_hash": "c6bc21d2c9c009404e1781162d5f7ff989cb7837"
+          }
+        },
+        {
           "client_id": "1007040316942-ip1jua1orro3tlte659igqnkg5mni199.apps.googleusercontent.com",
           "client_type": 3
         }
