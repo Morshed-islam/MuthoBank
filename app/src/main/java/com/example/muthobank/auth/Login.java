@@ -125,6 +125,10 @@ public class Login extends AppCompatActivity {
                     preferenceManager.putID(SharedPreferenceManager.KEY_ID, response.body().getId());
                     preferenceManager.putPin(SharedPreferenceManager.KEY_PASS, inputPassword);
 
+                    //fixed amount to show in salary
+                    preferenceManager.putFixedAmount(SharedPreferenceManager.KEY_FIXED_AMOUNT, amount);
+
+
                     Intent nextToHome = new Intent(getApplicationContext(), HomePage.class);
                     nextToHome.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //                    nextToHome.putExtra("AMOUNT",String.valueOf(amount));

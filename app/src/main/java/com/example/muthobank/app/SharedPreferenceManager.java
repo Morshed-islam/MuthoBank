@@ -47,6 +47,9 @@ public class SharedPreferenceManager {
     public static final String KEY_SEND_GREETINGS = "greetings";
 
 
+    public static final String  KEY_FIXED_AMOUNT = "fixed_total_amount";
+
+
     // Constructor
     public SharedPreferenceManager(Context context) {
         this._context = context;
@@ -185,6 +188,17 @@ public class SharedPreferenceManager {
     public int getAmount(String key, int defValue) {
         return pref.getInt(key, defValue);
     }
+
+
+    public void putFixedAmount(String key, int value) {
+        editor.putInt(key, value);
+        editor.apply();
+    }
+
+    public int getFixedAmount(String key, int defValue) {
+        return pref.getInt(key, defValue);
+    }
+
 
 
     public void logoutUser() {

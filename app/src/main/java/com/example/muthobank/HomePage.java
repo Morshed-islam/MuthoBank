@@ -47,11 +47,14 @@ public class HomePage extends AppCompatActivity {
     private String amount;
     private TextView _gAmount;
     private TextView _no_transactions_history;
+    private TextView salaryName,salaryAmount;
     private SharedPreferenceManager preferenceManager;
     private List<TransactionsPostModel> transactionsPostModels;
     private RecyclerView recyclerView;
     private TransactionsListAdapter adapter;
     private ProgressBar progressBar;
+    private LinearLayout _salaryAmountLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +75,9 @@ public class HomePage extends AppCompatActivity {
 //        }
 
 
+        salaryName = findViewById(R.id.salary_transactions_name);
+        salaryAmount = findViewById(R.id.salary_transactions_amount);
+        _salaryAmountLayout = findViewById(R.id.salary_amount_layout);
         _no_transactions_history = findViewById(R.id.no_transaction_history);
         progressBar = findViewById(R.id.main_progressBar);
         transactionsPostModels = new ArrayList<>();
@@ -90,7 +96,7 @@ public class HomePage extends AppCompatActivity {
         _gAmount = findViewById(R.id.tv_amount);
 
 
-        DecimalFormat formatter = new DecimalFormat("#,###,###");
+        DecimalFormat formatter = new DecimalFormat("##,##,###");
         String final_amount = formatter.format(preferenceManager.getAmount(SharedPreferenceManager.KEY_AMOUNT,0));
 
         _gAmount.setText("$"+final_amount);
@@ -130,19 +136,30 @@ public class HomePage extends AppCompatActivity {
 
                     progressBar.setVisibility(View.GONE);
 
-                    TransactionsPostModel postModel = new TransactionsPostModel();
+                    //salary amount
+                    _salaryAmountLayout.setVisibility(View.VISIBLE);
+                    showFixedSalaryAmount();
 
+                    TransactionsPostModel postModel = new TransactionsPostModel();
 
                     if (postModel.getId() == null){
                         Log.i("values", "onResponse: Null value");
-                        _no_transactions_history.setVisibility(View.VISIBLE);
+//                        _no_transactions_history.setVisibility(View.VISIBLE);
+
+                        //salary amount
+                        _salaryAmountLayout.setVisibility(View.VISIBLE);
+                        showFixedSalaryAmount();
 
                     }
 
                     for(TransactionsPostModel model: response.body()) {
 //                        System.out.println(model.toString());
                         Log.i("values", "onResponse: "+model.getAccountHolderName());
-                        _no_transactions_history.setVisibility(View.GONE);
+//                        _no_transactions_history.setVisibility(View.GONE);
+
+                        //salary amount
+                        _salaryAmountLayout.setVisibility(View.VISIBLE);
+                        showFixedSalaryAmount();
                         transactionsPostModels.add(model);
                         adapter.notifyDataSetChanged();
                         Log.i("values", "below onResponse: "+response.body().toString());
@@ -159,10 +176,21 @@ public class HomePage extends AppCompatActivity {
                 Log.i("data", "onResponse: "+t.getMessage());
                 progressBar.setVisibility(View.GONE);
                 _no_transactions_history.setVisibility(View.VISIBLE);
-
+                showFixedSalaryAmount();
             }
         });
 
+    }
+
+
+    private void showFixedSalaryAmount(){
+
+        salaryName.setText("Salary Payment");
+
+        DecimalFormat formatter_salary = new DecimalFormat("##,##,###");
+        String salary_amount = formatter_salary.format(preferenceManager.getFixedAmount(SharedPreferenceManager.KEY_FIXED_AMOUNT,0));
+
+        salaryAmount.setText("+ $"+salary_amount);
     }
 
 

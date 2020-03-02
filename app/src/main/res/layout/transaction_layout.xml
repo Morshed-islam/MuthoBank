@@ -17,18 +17,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/margin_5dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="MB"
-                android:layout_marginBottom="@dimen/margin_5dp"
                 android:textColor="#fff"
                 android:background="@drawable/red_round_circle"
                 android:padding="5dp"
                 android:textSize="10sp"
-                android:gravity="center"/>
+                android:gravity="left|center"/>
 
             <TextView
                 android:id="@+id/transactions_name"
@@ -39,7 +39,7 @@
                 android:layout_marginLeft="@dimen/margin_16dp"
                 android:textColor="@color/black"
                 android:text="name"
-                android:textSize="22sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/transactions_amount"
@@ -51,7 +51,7 @@
                 android:text="amount"
                 android:textStyle="bold"
                 android:textColor="@color/red"
-                android:textSize="22sp" />
+                android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout

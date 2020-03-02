@@ -25,8 +25,8 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="5dp"
                     android:src="@android:drawable/ic_menu_search"
                     android:tint="@color/red" />
@@ -59,8 +59,8 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/ic_settings"
@@ -89,8 +89,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="@dimen/margin_5dp"
-                android:gravity="bottom|center"
+                android:gravity="left|bottom|center"
                 android:text="Credit"
+                android:layout_marginLeft="@dimen/size1dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
@@ -144,9 +145,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="@dimen/margin_5dp"
-                android:gravity="bottom|center"
+                android:gravity="right|bottom|center"
                 android:textStyle="bold"
                 android:text="Savings"
+                android:layout_marginRight="@dimen/size1dp"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -166,6 +168,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:foregroundGravity="center"
+        android:backgroundTint="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -176,6 +179,7 @@
         android:layout_below="@+id/ln_layout"
         android:layout_width="60dp"
         android:id="@+id/today_tv"
+        android:layout_marginTop="@dimen/margin_10"
         android:layout_marginLeft="10dp"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -208,9 +212,78 @@
         android:gravity="center"
         />
 
+
+    <LinearLayout
+        android:id="@+id/salary_amount_layout"
+        android:layout_below="@+id/no_transaction_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/margin_5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="MB"
+                android:textColor="#fff"
+                android:background="@drawable/red_round_circle"
+                android:textSize="10sp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/salary_transactions_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="left|center"
+                android:layout_marginLeft="@dimen/margin_16dp"
+                android:textColor="@color/black"
+                android:text="name"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/salary_transactions_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="right|center"
+                android:text="amount"
+                android:textStyle="bold"
+                android:textColor="@color/tia"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/transactions_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginRight="5dp"
+                android:text="date" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:layout_below="@+id/today_tv"
+        android:layout_below="@+id/salary_amount_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="70dp"

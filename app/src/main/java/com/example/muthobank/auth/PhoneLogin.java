@@ -19,13 +19,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import com.example.muthobank.HomePage;
 import com.example.muthobank.R;
-import com.example.muthobank.api.ApiInterface;
-import com.example.muthobank.api.ApiUtils;
+
 import com.example.muthobank.app.SharedPreferenceManager;
-import com.example.muthobank.model.LoginPostModel;
-import com.example.muthobank.model.LoginResponse;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -38,11 +34,9 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import com.ybs.countrypicker.CountryPicker;
 import com.ybs.countrypicker.CountryPickerListener;
 
+
 import java.util.concurrent.TimeUnit;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class PhoneLogin extends AppCompatActivity {
 

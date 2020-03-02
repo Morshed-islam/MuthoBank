@@ -419,7 +419,6 @@
 
                 </LinearLayout>
 
-
             </LinearLayout>
 
             <LinearLayout
@@ -475,11 +474,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_10"
                     android:layout_marginRight="@dimen/margin_10"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/button_pressed"
                     android:padding="5dp"
                     android:text="Log Out"
-                    android:textColor="#fff" />
+                    android:textColor="#fff"
+                    />
 
             </LinearLayout>
         </LinearLayout>
