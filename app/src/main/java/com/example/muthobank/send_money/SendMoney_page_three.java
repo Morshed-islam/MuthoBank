@@ -36,6 +36,7 @@ public class SendMoney_page_three extends AppCompatActivity {
         final String holderName_fromPageTwo =getIntent().getStringExtra("PAGE_THREE_HOLDER_NAME");
         final String bankNumber_fromPageTwo =getIntent().getStringExtra("PAGE_THREE_BANK_ACCOUNT");
 
+//        Toast.makeText(this, ""+curencyType_fromPageTwo, Toast.LENGTH_SHORT).show();
 //        HashMap<String, String> getData = preferenceManager.getSendMoneyDetails();
 
 //        String getting_amount = getData.get(SharedPreferenceManager.KEY_SEND_CURRENCY);

@@ -7,11 +7,14 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import com.example.muthobank.R;
+import com.example.muthobank.adapter.SpinnerCustomAdapter;
 import com.example.muthobank.api.ApiInterface;
 import com.example.muthobank.api.ApiUtils;
 import com.example.muthobank.app.SharedPreferenceManager;
@@ -30,7 +33,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SendMoney_page_two extends AppCompatActivity {
+public class SendMoney_page_two extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
 
     private static final String TAG = "SEND_MONEY";
     private EditText  _senderHolderName, _senderBankAccount;
@@ -38,6 +41,11 @@ public class SendMoney_page_two extends AppCompatActivity {
     private Spinner _senderCurrencyType;
     private SharedPreferenceManager preferenceManager;
     private DatabaseReference myRef;
+
+    //spinner
+    String[] countryNames={"INR","TK","USD"};
+    int flags[] = {R.drawable.india, R.drawable.bd, R.drawable.usa};
+    private String mCurrencyType;
 
 
     @Override
@@ -47,8 +55,14 @@ public class SendMoney_page_two extends AppCompatActivity {
 
         preferenceManager = new SharedPreferenceManager(getApplicationContext());
         myRef = FirebaseDatabase.getInstance().getReference("MuthoBank");
-        
+
         initViews();
+
+        //spinner
+        _senderCurrencyType.setOnItemSelectedListener(this);
+
+        SpinnerCustomAdapter customAdapter=new SpinnerCustomAdapter(getApplicationContext(),flags,countryNames);
+        _senderCurrencyType.setAdapter(customAdapter);
 
         final HashMap<String, String> user = preferenceManager.getUserDetails();
         final String bankNumCheck  = user.get(SharedPreferenceManager.KEY_BANK_ACCOUNT);
@@ -69,12 +83,11 @@ public class SendMoney_page_two extends AppCompatActivity {
             public void onClick(View v) {
 
 //                String mCurreency = _senderCurrency.getText().toString();
-                String mCurrencyType = _senderCurrencyType.getSelectedItem().toString();
+//                String mCurrencyType = _senderCurrencyType.getSelectedItem().toString();
                 String mBankNumber = _senderBankAccount.getText().toString();
                 String mHolderName = _senderHolderName.getText().toString();
 
-                if ( TextUtils.isEmpty(mBankNumber) || TextUtils.isEmpty(mHolderName)
-                    || _senderCurrencyType == null && _senderCurrencyType.getSelectedItem() ==null) {
+                if ( TextUtils.isEmpty(mBankNumber) || TextUtils.isEmpty(mHolderName)) {
 
                     Toast.makeText(SendMoney_page_two.this, "All Field Required!", Toast.LENGTH_SHORT).show();
                     return;
@@ -149,4 +162,15 @@ public class SendMoney_page_two extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//        Toast.makeText(getApplicationContext(), countryNames[position], Toast.LENGTH_LONG).show();
+//        _senderHolderName.setText(_senderCurrencyType.getSelectedItem().toString());
+//        next.putExtra("PAGE_THREE_CURRENCY_TYPE",mCurrencyType);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
