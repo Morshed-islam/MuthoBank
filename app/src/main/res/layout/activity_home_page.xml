@@ -7,9 +7,9 @@
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="90dp"
         android:id="@+id/main_toolbar"
-        android:background="@drawable/square_shape">
+        android:background="@drawable/toolbar_square_shape">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,6 +45,7 @@
                     android:layout_height="wrap_content"
                     android:text="MuthoBank"
                     android:gravity="center"
+                    android:textStyle="bold"
                     android:textColor="@color/red"
                     android:textSize="25sp" />
 
@@ -72,7 +73,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="90dp"
         android:id="@+id/ln_layout"
         android:layout_below="@+id/main_toolbar"
         android:background="@drawable/square_shape"
@@ -90,6 +91,7 @@
                 android:layout_marginBottom="@dimen/margin_5dp"
                 android:gravity="bottom|center"
                 android:text="Credit"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -99,7 +101,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.6"
-            android:gravity="center"
+            android:gravity="center|bottom"
             android:orientation="vertical">
 
             <TextView
@@ -108,6 +110,7 @@
                 android:layout_height="wrap_content"
                 android:text="$54,534"
                 android:textSize="25sp"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:gravity="bottom|center"/>
 
@@ -116,13 +119,15 @@
                 android:layout_height="wrap_content"
                 android:text="Current Balance"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:gravity="bottom|center"/>
 
             <View
-                android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:layout_gravity="bottom"
+                android:layout_width="150dp"
+                android:layout_height="4dp"
+                android:layout_gravity="bottom|center"
+                android:layout_marginBottom="2dp"
                 android:background="@color/red"/>
 
         </LinearLayout>
@@ -140,6 +145,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginBottom="@dimen/margin_5dp"
                 android:gravity="bottom|center"
+                android:textStyle="bold"
                 android:text="Savings"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
