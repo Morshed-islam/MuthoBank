@@ -22,6 +22,8 @@ import com.example.muthobank.app.SharedPreferenceManager;
 import com.example.muthobank.model.SendMoneyPostModel;
 import com.example.muthobank.model.SendMoneyResponse;
 
+import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.util.HashMap;
 
 import retrofit2.Call;
@@ -49,6 +51,22 @@ public class SendMoney_page_five extends AppCompatActivity {
         getting_amount = getData.get(SharedPreferenceManager.KEY_SEND_CURRENCY);
         getting_holder_name = getData.get(SharedPreferenceManager.KEY_SEND_HOLDER_NAME);
         greetings = preferenceManager.getGreetings(SharedPreferenceManager.KEY_SEND_GREETINGS, "");
+
+//        DecimalFormat formatter = new DecimalFormat("##,##,###");
+//
+//        try {
+//            Object object1 = formatter.parse(getting_amount);
+//            Object object2 = formatter.parse(getting_holder_name);
+//            String final_amount = formatter.format(object1);
+//            String final_name = formatter.format(object2);
+//            _toolbarAmount.setText("$"+final_amount+" For "+final_name);
+//            _amount.setText(final_amount);
+//
+//
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+
 
         _toolbarAmount.setText("$" + getting_amount + " for " + getting_holder_name);
         _holderName.setText(getting_holder_name);

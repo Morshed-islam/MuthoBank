@@ -16,6 +16,8 @@ import com.example.muthobank.app.SharedPreferenceManager;
 
 import org.w3c.dom.Text;
 
+import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.util.HashMap;
 
 public class SendMoney_page_four extends AppCompatActivity {
@@ -23,6 +25,7 @@ public class SendMoney_page_four extends AppCompatActivity {
     private SharedPreferenceManager preferenceManager;
     private TextView _toolbarAmount;
     private EditText _greetings;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,10 +37,27 @@ public class SendMoney_page_four extends AppCompatActivity {
 
 
         HashMap<String, String> getData = preferenceManager.getSendMoneyDetails();
-        String getting_amount = getData.get(SharedPreferenceManager.KEY_SEND_CURRENCY);
+        String getting_amount = "" + getData.get(SharedPreferenceManager.KEY_SEND_CURRENCY);
         String getting_holder_name = getData.get(SharedPreferenceManager.KEY_SEND_HOLDER_NAME);
 
-        _toolbarAmount.setText("$"+getting_amount+" for "+getting_holder_name);
+//
+//        DecimalFormat formatter = new DecimalFormat("##,##,###");
+//        try {
+////            String getting_amount = ""+getData.get(SharedPreferenceManager.KEY_SEND_CURRENCY);
+////            String getting_holder_name = getData.get(SharedPreferenceManager.KEY_SEND_HOLDER_NAME);
+//            String amt = "" + getData.get(SharedPreferenceManager.KEY_SEND_CURRENCY);
+//            Object obj = formatter.parse(amt);
+//            String _mAmount = formatter.format(obj);
+//            _toolbarAmount.setText("$" + _mAmount);
+//
+//
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+
+
+//        _toolbarAmount.setText("$"+toolbar_amount+" For "+toolbar_name);
+        _toolbarAmount.setText("$"+getting_amount+" For "+getting_holder_name);
 
 
         findViewById(R.id.back_to_page_three).setOnClickListener(new View.OnClickListener() {
@@ -56,12 +76,12 @@ public class SendMoney_page_four extends AppCompatActivity {
 
                 String mGretings = _greetings.getText().toString();
 
-                if (TextUtils.isEmpty(mGretings)){
+                if (TextUtils.isEmpty(mGretings)) {
                     Toast.makeText(SendMoney_page_four.this, "Message Field Required", Toast.LENGTH_SHORT).show();
                     return;
-                }else {
+                } else {
 
-                    preferenceManager.putGreetings(SharedPreferenceManager.KEY_SEND_GREETINGS,mGretings);
+                    preferenceManager.putGreetings(SharedPreferenceManager.KEY_SEND_GREETINGS, mGretings);
                     startActivity(new Intent(getApplicationContext(), SendMoney_page_five.class));
                 }
 

@@ -52,6 +52,7 @@
             android:gravity="center"
             android:background="@color/white"
             android:hint="Amount"
+            android:inputType="numberDecimal"
             android:textColor="@color/black"
             android:textSize="40sp" />
 

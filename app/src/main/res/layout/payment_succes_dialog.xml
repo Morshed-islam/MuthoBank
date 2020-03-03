@@ -22,7 +22,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="@dimen/margin_5dp"
-                android:src="@drawable/ic_success"
+                android:src="@drawable/confirm"
                 android:tint="@color/red" />
 
 

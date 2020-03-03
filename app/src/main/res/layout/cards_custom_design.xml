@@ -101,7 +101,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="right"
-                            android:text="Muthobank"
+                            android:text="MuthoBank"
                             android:textColor="#fff"
                             android:textSize="22sp"
                             android:textStyle="bold" />
@@ -295,7 +295,6 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Account"
-                        android:layout_marginTop="@dimen/_5sdp"
                         android:textSize="12sp" />
 
                 </LinearLayout>
@@ -321,7 +320,6 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Pin/Card Number"
-                        android:layout_marginTop="@dimen/_5sdp"
                         android:textSize="12sp" />
 
                 </LinearLayout>
@@ -347,7 +345,6 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Card Block"
-                        android:layout_marginTop="@dimen/_5sdp"
                         android:textSize="12sp" />
 
                 </LinearLayout>
@@ -373,7 +370,6 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Add Money"
-                        android:layout_marginTop="@dimen/_5sdp"
                         android:textSize="12sp" />
 
                 </LinearLayout>
@@ -421,7 +417,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="Account Details,Set Pin,Block Card"
+                        android:text="Account details,Set Pin,Block Card"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -473,7 +469,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="30dp"
-                android:layout_marginBottom="@dimen/_30sdp"
                 android:orientation="vertical">
 
                 <Button

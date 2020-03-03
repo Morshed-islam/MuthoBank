@@ -77,8 +77,9 @@
             android:scrollbarStyle="insideInset"
             android:scrollbars="vertical"
             android:lines="6"
-            android:hint="Thank you"
+            android:hint="Thank You"
             android:padding="@dimen/margin_10"
+            android:textColorHint="@color/black"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:scrollHorizontally="false" />
 

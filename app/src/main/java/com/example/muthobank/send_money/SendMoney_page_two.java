@@ -43,8 +43,8 @@ public class SendMoney_page_two extends AppCompatActivity  implements AdapterVie
     private DatabaseReference myRef;
 
     //spinner
-    String[] countryNames={"INR","TK","USD"};
-    int flags[] = {R.drawable.india, R.drawable.bd, R.drawable.usa};
+    String[] countryNames={"USD","INR","TK"};
+    int flags[] = {R.drawable.usa,R.drawable.india, R.drawable.bd};
     private String mCurrencyType;
 
 

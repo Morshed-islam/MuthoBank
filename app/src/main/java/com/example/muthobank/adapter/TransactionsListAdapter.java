@@ -15,7 +15,9 @@ import com.example.muthobank.app.Fonts;
 import com.example.muthobank.app.SharedPreferenceManager;
 import com.example.muthobank.model.TransactionsPostModel;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,11 +46,15 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
         holder.name.setText(model.getAccountHolderName());
         holder.date.setText(model.getCreatedAt());
         String amount = ""+model.getSendMoney();
-//        DecimalFormat formatter = new DecimalFormat("##,##,###");
-//        String final_amount = formatter.format(""+amount);
+        DecimalFormat formatter = new DecimalFormat("##,##,###");
+        try {
+            Object object = formatter.parse(amount);
+            String final_amount = formatter.format(object);
+            holder.amount.setText("- $"+final_amount);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
-
-        holder.amount.setText("- $"+amount);
 
 
 

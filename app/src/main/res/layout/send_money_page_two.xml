@@ -92,7 +92,7 @@
             android:layout_height="65dp"
             android:background="@drawable/edidtext_shape"
             android:hint="Bank Number"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:maxLength="11"
             android:padding="10dp"
             android:paddingLeft="5dp"
