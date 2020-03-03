@@ -79,7 +79,8 @@
         app:dotDiameter="18dp"
         app:dotSpacing="5dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp" />
+        android:layout_marginTop="36dp"
+        />
 
     <com.andrognito.pinlockview.PinLockView
         android:id="@+id/pin_lock_view"
@@ -88,7 +89,7 @@
         android:layout_below="@id/indicator_dots"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        app:keypadButtonSize="40dp"
+        app:keypadButtonSize="60dp"
         app:keypadTextColor="#000"
         app:keypadShowDeleteButton="true"
         app:keypadDeleteButtonPressedColor="@color/red"

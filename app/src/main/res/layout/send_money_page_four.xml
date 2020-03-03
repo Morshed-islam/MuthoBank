@@ -21,8 +21,8 @@
             <ImageView
                 android:id="@+id/back_to_page_three"
                 android:layout_width="40dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_arrow_left" />
+                android:layout_height="30dp"
+                android:src="@drawable/ic_back_toolbar" />
 
             <TextView
                 android:id="@+id/tv_page_four_toolbar"
