@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.graphics.fonts.Font;
 import android.media.session.MediaSession;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +23,7 @@ import com.example.muthobank.adapter.TransactionsListAdapter;
 import com.example.muthobank.api.ApiInterface;
 import com.example.muthobank.api.ApiUtils;
 import com.example.muthobank.app.Constants;
+import com.example.muthobank.app.Fonts;
 import com.example.muthobank.app.SharedPreferenceManager;
 import com.example.muthobank.model.TransactionsPostModel;
 import com.example.muthobank.send_money.SendMoney_page_one;
@@ -48,12 +51,14 @@ public class HomePage extends AppCompatActivity {
     private TextView _gAmount;
     private TextView _no_transactions_history;
     private TextView salaryName,salaryAmount;
+    private TextView _muthobankTitle,_credits,_savings,_current_balance_title;
     private SharedPreferenceManager preferenceManager;
     private List<TransactionsPostModel> transactionsPostModels;
     private RecyclerView recyclerView;
     private TransactionsListAdapter adapter;
     private ProgressBar progressBar;
     private LinearLayout _salaryAmountLayout;
+
 
 
     @Override
@@ -75,11 +80,17 @@ public class HomePage extends AppCompatActivity {
 //        }
 
 
-        salaryName = findViewById(R.id.salary_transactions_name);
-        salaryAmount = findViewById(R.id.salary_transactions_amount);
-        _salaryAmountLayout = findViewById(R.id.salary_amount_layout);
-        _no_transactions_history = findViewById(R.id.no_transaction_history);
-        progressBar = findViewById(R.id.main_progressBar);
+        initViews();
+
+        //custom font apply
+        Fonts.customFont(_credits,getApplicationContext());
+        Fonts.customFont(_savings,getApplicationContext());
+        Fonts.customFont(_muthobankTitle,getApplicationContext());
+        _muthobankTitle.setTypeface(_muthobankTitle.getTypeface(), Typeface.BOLD);
+
+        Fonts.customFont(_current_balance_title,getApplicationContext());
+
+
         transactionsPostModels = new ArrayList<>();
 
         recyclerView = findViewById(R.id.recycler_view);
@@ -99,6 +110,7 @@ public class HomePage extends AppCompatActivity {
         DecimalFormat formatter = new DecimalFormat("##,##,###");
         String final_amount = formatter.format(preferenceManager.getAmount(SharedPreferenceManager.KEY_AMOUNT,0));
 
+        Fonts.customFont(_gAmount,getApplicationContext());
         _gAmount.setText("$"+final_amount);
 
 
@@ -123,6 +135,22 @@ public class HomePage extends AppCompatActivity {
 
     }
 
+
+    private void initViews(){
+
+        //ui init views
+        salaryName = findViewById(R.id.salary_transactions_name);
+        salaryAmount = findViewById(R.id.salary_transactions_amount);
+        _salaryAmountLayout = findViewById(R.id.salary_amount_layout);
+        _no_transactions_history = findViewById(R.id.no_transaction_history);
+        progressBar = findViewById(R.id.main_progressBar);
+
+        _credits = findViewById(R.id.credit);
+        _savings = findViewById(R.id.savings);
+        _muthobankTitle = findViewById(R.id.muthobank_title);
+        _current_balance_title = findViewById(R.id.current_balance_title);
+
+    }
 
     private void getTransactions(int customer_id){
 

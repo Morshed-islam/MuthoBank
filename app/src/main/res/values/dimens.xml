@@ -34,4 +34,23 @@
     <dimen name="size1dp">1dp</dimen>
     <dimen name="margin_5dp">8dp</dimen>
 
+
+<!--   sdp-->
+    <dimen name="_1sdp">1.00dp</dimen>
+    <dimen name="_5sdp">5.00dp</dimen>
+    <dimen name="_8sdp">8.00dp</dimen>
+    <dimen name="_10sdp">10.00dp</dimen>
+    <dimen name="_16sdp">16.00dp</dimen>
+    <dimen name="_25sdp">25.00dp</dimen>
+
+    <dimen name="_card_height_sdp">180.00dp</dimen>
+    <dimen name="_card_width_sdp">280.00dp</dimen>
+    <dimen name="_chip_top_margin_sdp">25.00dp</dimen>
+    <dimen name="_chip_width_sdp">55.00dp</dimen>
+    <dimen name="_chip_height_sdp">40.00dp</dimen>
+    <dimen name="_cardtype_width_sdp">95.00dp</dimen>
+    <dimen name="_cardtype_height_sdp">50.00dp</dimen>
+    <dimen name="_margin_10_sdp">10.00dp</dimen>
+    <dimen name="_card_margin_sdp">25.00dp</dimen>
+
 </resources>

@@ -65,7 +65,6 @@ public class SendMoney_page_three extends AppCompatActivity {
                     return;
                 }
 
-
                 if (!_amount.getText().toString().isEmpty()){
 
                     int ed_amount = Integer.parseInt(_amount.getText().toString());

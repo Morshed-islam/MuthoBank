@@ -10,8 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.muthobank.R;
+import com.example.muthobank.app.Fonts;
+import com.example.muthobank.app.SharedPreferenceManager;
 import com.example.muthobank.model.TransactionsPostModel;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +42,11 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
         TransactionsPostModel model= teamsList.get(position);
         holder.name.setText(model.getAccountHolderName());
         holder.date.setText(model.getCreatedAt());
-        holder.amount.setText("- $"+model.getSendMoney());
+        String amount = ""+model.getSendMoney();
+//        DecimalFormat formatter = new DecimalFormat("##,##,###");
+//        String final_amount = formatter.format(""+amount);
+        holder.amount.setText("- $"+amount);
+
 
     }
 
@@ -59,8 +66,10 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
             super(itemView);
 
             name = (TextView) itemView.findViewById(R.id.transactions_name);
+            Fonts.customFont(name,mContext.getApplicationContext());
             date = (TextView) itemView.findViewById(R.id.transactions_date);
             amount = (TextView) itemView.findViewById(R.id.transactions_amount);
+            Fonts.customFont(amount,mContext.getApplicationContext());
         }
     }
 }

@@ -46,5 +46,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics:16.0.3'
     implementation 'com.google.firebase:firebase-database:16.0.1'
 
+    //ssp library for font
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
 
 }

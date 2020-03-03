@@ -154,33 +154,33 @@
 
                     </LinearLayout>
 
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_gravity="end"-->
-<!--                        android:orientation="horizontal">-->
+                    <!--                    <LinearLayout-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_gravity="end"-->
+                    <!--                        android:orientation="horizontal">-->
 
-<!--                        <TextView-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginRight="@dimen/items_inbetween_small"-->
-<!--                            android:textColor="@color/card_text_color"-->
-<!--                            android:textSize="8dp"-->
-<!--                            android:text="Valid"-->
-<!--                            />-->
+                    <!--                        <TextView-->
+                    <!--                            android:layout_width="wrap_content"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:layout_marginRight="@dimen/items_inbetween_small"-->
+                    <!--                            android:textColor="@color/card_text_color"-->
+                    <!--                            android:textSize="8dp"-->
+                    <!--                            android:text="Valid"-->
+                    <!--                            />-->
 
-<!--                        <TextView-->
-<!--                            android:id="@+id/tv_validity"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginRight="30dp"-->
-<!--                            android:fontFamily="serif"-->
-<!--                            android:gravity="left"-->
-<!--                            android:text="@string/card_validity_sample"-->
-<!--                            android:textColor="@color/card_text_color"-->
-<!--                            android:textSize="18sp" />-->
+                    <!--                        <TextView-->
+                    <!--                            android:id="@+id/tv_validity"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:layout_marginRight="30dp"-->
+                    <!--                            android:fontFamily="serif"-->
+                    <!--                            android:gravity="left"-->
+                    <!--                            android:text="@string/card_validity_sample"-->
+                    <!--                            android:textColor="@color/card_text_color"-->
+                    <!--                            android:textSize="18sp" />-->
 
-<!--                    </LinearLayout>-->
+                    <!--                    </LinearLayout>-->
 
 
                     <!--                    <LinearLayout-->
@@ -385,12 +385,9 @@
 
                 </LinearLayout>
 
-
             </LinearLayout>
 
-
-            <!--    card accounts-->
-
+            <!--card accounts-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
@@ -404,7 +401,6 @@
                     android:gravity="top"
                     android:layout_marginLeft="10dp"
                     android:src="@drawable/ic_card" />
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -426,7 +422,6 @@
                         android:textStyle="bold"
                         android:text="Account details,Set Pin,Block Card"
                         android:textSize="16sp" />
-
 
                 </LinearLayout>
 
@@ -489,8 +484,7 @@
                     android:padding="5dp"
                     android:text="Log Out"
                     android:textAllCaps="false"
-                    android:textColor="#fff"
-                    />
+                    android:textColor="#fff" />
 
             </LinearLayout>
         </LinearLayout>

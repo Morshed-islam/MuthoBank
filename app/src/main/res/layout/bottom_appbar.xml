@@ -32,18 +32,19 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="50dp"
+                    android:layout_width="45dp"
                     android:layout_height="40dp"
                     android:padding="@dimen/margin_5dp"
-                    android:src="@drawable/ic_home2"
-                    android:tint="@color/red" />
+                    android:src="@drawable/ic_bottom_home"
+                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Home"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/_12ssp" />
 
             </LinearLayout>
 
@@ -60,18 +61,19 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="50dp"
+                    android:layout_width="45dp"
                     android:layout_height="40dp"
                     android:padding="@dimen/margin_5dp"
-                    android:src="@drawable/ic_stat"
-                    android:tint="@color/red" />
+                    android:src="@drawable/ic_bottom_stat"
+                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Stats"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/_12ssp" />
 
             </LinearLayout>
 
@@ -89,18 +91,19 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="50dp"
+                    android:layout_width="45dp"
                     android:layout_height="40dp"
                     android:padding="@dimen/margin_5dp"
-                    android:src="@drawable/ic_send"
-                    android:tint="@color/red" />
+                    android:src="@drawable/ic_bottom_send"
+                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Send"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/_12ssp" />
 
             </LinearLayout>
 
@@ -118,18 +121,19 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="50dp"
+                    android:layout_width="45dp"
                     android:layout_height="40dp"
                     android:padding="@dimen/margin_5dp"
-                    android:src="@drawable/ic_card"
-                    android:tint="@color/red" />
+                    android:src="@drawable/ic_bottom_cards"
+                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cards"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/_12ssp" />
 
             </LinearLayout>
 
@@ -146,19 +150,19 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="50dp"
+                    android:layout_width="45dp"
                     android:layout_height="40dp"
                     android:padding="@dimen/margin_5dp"
-                    android:src="@drawable/ic_others"
-                    android:tint="@color/red" />
+                    android:src="@drawable/ic_bottom_others"
+                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Others"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
-
+                    android:textSize="@dimen/_12ssp" />
             </LinearLayout>
 
 
