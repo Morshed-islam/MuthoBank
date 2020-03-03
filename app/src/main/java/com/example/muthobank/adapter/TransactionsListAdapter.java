@@ -1,6 +1,7 @@
 package com.example.muthobank.adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +46,10 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
         String amount = ""+model.getSendMoney();
 //        DecimalFormat formatter = new DecimalFormat("##,##,###");
 //        String final_amount = formatter.format(""+amount);
+
+
         holder.amount.setText("- $"+amount);
+
 
 
     }
@@ -66,9 +70,11 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
             super(itemView);
 
             name = (TextView) itemView.findViewById(R.id.transactions_name);
+            name.setTypeface(name.getTypeface(), Typeface.BOLD);
             Fonts.customFont(name,mContext.getApplicationContext());
             date = (TextView) itemView.findViewById(R.id.transactions_date);
             amount = (TextView) itemView.findViewById(R.id.transactions_amount);
+            amount.setTypeface(amount.getTypeface(), Typeface.BOLD);
             Fonts.customFont(amount,mContext.getApplicationContext());
         }
     }

@@ -27,8 +27,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:gravity="center_vertical"
+                android:layout_marginLeft="-40dp"
+                android:gravity="center"
                 android:text="Send Money"
                 android:textColor="@color/black"
                 android:textSize="25sp" />
@@ -80,14 +80,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
+        android:gravity="bottom"
         android:orientation="vertical">
 
         <Button
             android:id="@+id/page_three_continue_btn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:text="Continue"
+            android:textAllCaps="false"
             android:textColor="#fff"
+            android:textSize="27sp"
             android:background="@drawable/button_pressed"
             />
 

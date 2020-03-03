@@ -285,12 +285,12 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/card_icon_round"
                         android:layout_gravity="center"
-                        android:background="@drawable/card_bottom_oval_design"
                         android:padding="@dimen/margin_5dp"
-                        android:src="@drawable/ic_credit_card" />
+                        android:src="@drawable/pay" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -310,12 +310,12 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/card_icon_round"
                         android:layout_gravity="center"
-                        android:background="@drawable/card_bottom_oval_design"
                         android:padding="@dimen/margin_5dp"
-                        android:src="@drawable/ic_fiber_pin" />
+                        android:src="@drawable/eye" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -323,7 +323,6 @@
                         android:gravity="center"
                         android:text="Pin/Card Number"
                         android:textSize="12sp" />
-
 
                 </LinearLayout>
 
@@ -336,12 +335,12 @@
 
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/card_icon_round"
                         android:layout_gravity="center"
-                        android:background="@drawable/card_bottom_oval_design"
                         android:padding="@dimen/margin_5dp"
-                        android:src="@drawable/ic_block" />
+                        android:src="@drawable/snow" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -361,12 +360,12 @@
 
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/card_icon_round"
                         android:layout_gravity="center"
-                        android:background="@drawable/card_bottom_oval_design"
                         android:padding="@dimen/margin_5dp"
-                        android:src="@drawable/ic_add" />
+                        android:src="@drawable/plus" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -390,7 +389,7 @@
             <!--card accounts-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
+                android:layout_height="80dp"
                 android:layout_marginTop="@dimen/margin_16dp"
                 android:background="@drawable/square_shape"
                 android:orientation="horizontal">
@@ -429,15 +428,17 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
+                android:layout_height="80dp"
                 android:background="@drawable/square_shape"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/_5sdp"
+                >
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:src="@drawable/ic_account" />
+                    android:src="@drawable/account" />
 
                 <LinearLayout
                     android:layout_width="match_parent"

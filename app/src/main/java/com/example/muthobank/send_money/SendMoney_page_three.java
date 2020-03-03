@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.muthobank.R;
 import com.example.muthobank.app.SharedPreferenceManager;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 
 public class SendMoney_page_three extends AppCompatActivity {
@@ -42,7 +43,11 @@ public class SendMoney_page_three extends AppCompatActivity {
 //        String getting_amount = getData.get(SharedPreferenceManager.KEY_SEND_CURRENCY);
         String getting_available_balance = String.valueOf(preferenceManager.getAmount(SharedPreferenceManager.KEY_AMOUNT,0));
 //        _amount.setText("");
-        _availableBalance.setText("Available Balance: $"+getting_available_balance);
+
+        DecimalFormat formatter = new DecimalFormat("##,##,###");
+        String final_amount = formatter.format(preferenceManager.getAmount(SharedPreferenceManager.KEY_AMOUNT,0));
+
+        _availableBalance.setText("Available Balance: $"+final_amount);
 
         findViewById(R.id.back_to_page_two).setOnClickListener(new View.OnClickListener() {
             @Override
